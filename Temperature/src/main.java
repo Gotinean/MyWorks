@@ -9,15 +9,13 @@ public class main<next>
         int minTemperature = 32;
         int variableTemperature = 8;
         int j;
-        for (j=0; j < 30; j++) {
-            peopleCount[j] = (minTemperature + ((int) (Math.random() * variableTemperature)));
-        }
         int sum = 0;
-        for(int i = 0; i < peopleCount.length ; i++) {
-            sum = sum + peopleCount[i];
+        for (j=0; j < peopleCount.length; j++) {
+            peopleCount[j] = (minTemperature + ((int) (Math.random() * variableTemperature)));
+            sum = sum + peopleCount[j];
         }
-        long numberOfHealthPeople = Arrays.stream(peopleCount)
-                .filter(t -> t >= 36 && t <= 37)
+        long numberOfHealthPeople = Arrays.stream(peopleCount) //Выполняется стрим, который нужен, чтобы работать только с теми элементами, которые удовлетворяют условия описанные ниже
+                .filter(t -> t >= 36 && t <= 37) //Фильтруется все пациенты с температурой выше либо равно 36 и в то же время меньше либо равно 37
                 .count();
         System.out.println(sum/30);
         System.out.println("Колличество здоровых людей: " + numberOfHealthPeople );
