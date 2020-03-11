@@ -17,14 +17,10 @@ public class main
                 {
                 xFiles[a][b] = "X";
                 }
-        else if (b - a == xFiles.length)
+        else if (b == xFiles.length - a)
                 {
                     xFiles[a][b] = "X";
                 }
-        else if (b - a == valueOfX - valueOfX%2)
-                {xFiles[a][b] = "X";}
-        else if (a - b == valueOfX - valueOfX%2)
-                {xFiles[a][b] = "X";}
         for(a = 0; a <= xFiles.length-1; a++)
             for (b = 0; b <= xFiles.length-1; b++)
                 if (xFiles[a][b] != "X")
