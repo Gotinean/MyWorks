@@ -21,9 +21,7 @@ public class main
                 {
                     xFiles[a][b] = "X";
                 }
-        for(a = 0; a <= xFiles.length-1; a++)
-            for (b = 0; b <= xFiles.length-1; b++)
-                if (xFiles[a][b] != "X")
+        else if (xFiles[a][b] != "X")
                 {
                     xFiles[a][b] = " ";
                 }
