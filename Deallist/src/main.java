@@ -35,14 +35,22 @@ public class main
 
             if (action.equals("ADD"))
             {
-                toDoList.add(nr,text);
-                for (int j = 0; j<toDoList.size(); j++)
-                {
-                    System.out.println(toDoList.get(j));
+                if (nr == 0) {
+                    toDoList.add(text);
+                    for (int j = 0; j < toDoList.size(); j++) {
+                        System.out.println(toDoList.get(j));
+                    }
+                }
+                    else {
+                    toDoList.add(nr - 1, text);
+                    for (int j = 0; j < toDoList.size(); j++) {
+                        System.out.println(toDoList.get(j));
+                    }
                 }
             }
             else if (action.equals("EDIT"))
             {
+                toDoList.remove(nr);
                 toDoList.add(nr,text);
                 for (int j = 0; j<toDoList.size(); j++)
                 {
@@ -72,7 +80,6 @@ public class main
     private static void list(ArrayList todo) {
         for (int j = 0; j< todo.size(); j++){
             System.out.println((j + 1) + " " + todo.get(j));
-            System.out.println(todo.get(j));
         }
     }
 
