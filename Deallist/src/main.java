@@ -27,6 +27,7 @@ public class main
             }
             
             ArrayList<String> toDoList = new ArrayList<>();
+            toDoList.add("");
             toDoList.add("Сходить в магазин");
             toDoList.add("Убрать в доме");
             toDoList.add("Выбросить мусор");
@@ -42,7 +43,7 @@ public class main
                     }
                 }
                     else {
-                    toDoList.add(nr - 1, text);
+                    toDoList.add(nr, text);
                     for (int j = 0; j < toDoList.size(); j++) {
                         System.out.println(toDoList.get(j));
                     }
@@ -50,8 +51,7 @@ public class main
             }
             else if (action.equals("EDIT"))
             {
-                toDoList.remove(nr);
-                toDoList.add(nr,text);
+                toDoList.set(nr, text);
                 for (int j = 0; j<toDoList.size(); j++)
                 {
                     System.out.println(toDoList.get(j));
@@ -78,8 +78,8 @@ public class main
     }
 
     private static void list(ArrayList todo) {
-        for (int j = 0; j< todo.size(); j++){
-            System.out.println((j + 1) + " " + todo.get(j));
+        for (int j = 1; j< todo.size(); j++){
+            System.out.println((j) + " " + todo.get(j));
         }
     }
 
