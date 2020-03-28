@@ -38,32 +38,33 @@ public class main
             {
                 if (nr == 0) {
                     toDoList.add(text);
-                    for (int j = 0; j < toDoList.size(); j++) {
-                        System.out.println(toDoList.get(j));
+                    for (int j = 1; j < toDoList.size(); j++) {
+                        System.out.println((j) + " " + toDoList.get(j));
                     }
                 }
                     else {
                     toDoList.add(nr, text);
-                    for (int j = 0; j < toDoList.size(); j++) {
-                        System.out.println(toDoList.get(j));
+                    for (int j = 1; j < toDoList.size(); j++) {
+                        System.out.println((j) + " " + toDoList.get(j));
                     }
                 }
             }
             else if (action.equals("EDIT"))
             {
                 toDoList.set(nr, text);
-                for (int j = 0; j<toDoList.size(); j++)
+                for (int j = 1; j<toDoList.size(); j++)
                 {
-                    System.out.println(toDoList.get(j));
+                    System.out.println((j) + " " + toDoList.get(j));
                 }
             }
             else if (action.equals("DELETE"))
             {
                 
+                toDoList.remove(nr);
                 toDoList.remove(text);
-                for (int j = 0; j<toDoList.size(); j++)
+                for (int j = 1; j<toDoList.size(); j++)
                 {
-                    System.out.println(toDoList.get(j));
+                    System.out.println((j) + " " + toDoList.get(j));
                 }
             }
             else if (action.equals("LIST"))
