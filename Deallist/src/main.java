@@ -8,6 +8,13 @@ public class main
         String command;
         System.out.println("Выберите действие и введите одну из комманд: \n ADD \n EDIT \n DELETE \n LIST");
         Scanner scanner = new Scanner(System.in);
+        ArrayList<String> toDoList = new ArrayList<>();
+        toDoList.add("");
+        toDoList.add("Сходить в магазин");
+        toDoList.add("Убрать в доме");
+        toDoList.add("Выбросить мусор");
+        toDoList.add("Сделать дз Скиллбокс");
+        toDoList.add("Найти дракона");
         while(true) {
             command = scanner.nextLine();
             String[] parts = command.split(" ", 2);
@@ -25,15 +32,6 @@ public class main
                     text = parts[1];
                 }
             }
-            
-            ArrayList<String> toDoList = new ArrayList<>();
-            toDoList.add("");
-            toDoList.add("Сходить в магазин");
-            toDoList.add("Убрать в доме");
-            toDoList.add("Выбросить мусор");
-            toDoList.add("Сделать дз Скиллбокс");
-            toDoList.add("Найти дракона");
-
             if (action.equals("ADD"))
             {
                 if (nr == 0) {
