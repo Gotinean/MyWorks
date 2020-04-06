@@ -24,6 +24,10 @@ public class Main
             }
 
             if (Character.isDigit(fullName.charAt(0))){
+                if(phoneBook.containsValue(fullName)){
+                    System.out.println(phoneBook.values());
+                }
+                else
             System.out.println("Введите пожалуйста имя владельца телефона");
             Scanner command2 = new Scanner(System.in);
             String newName = command2.nextLine();
@@ -31,6 +35,10 @@ public class Main
             phoneBook.put(newName,fullName);
             }
             else if(Character.isAlphabetic(fullName.charAt(0))) {
+                if(phoneBook.containsKey(fullName)){
+                    System.out.println(phoneBook.get(fullName));
+                }
+                else
                 System.out.println("Введите пожалуйста номер телефона данного человека");
                 Scanner command3 = new Scanner(System.in);
                 String newNumber = command3.nextLine();
