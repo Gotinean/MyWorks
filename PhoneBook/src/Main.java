@@ -9,53 +9,48 @@ TODO:
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) {
         TreeMap<String, String> phoneBook = new TreeMap<>();
-        while (true)
-        {
+        while (true) {
             Scanner command = new Scanner(System.in);
             String fullName = command.nextLine();
-            if(fullName.equals("LIST")) {
+            if (fullName.equals("LIST")) {
                 printMap(phoneBook);
                 continue;
             }
 
-            if (Character.isDigit(fullName.charAt(0))){
-                if(phoneBook.containsValue(fullName)){
-                    System.out.println("Данный номер принадлежит контакту: "+phoneBook.keySet());
-                }
-                else
-                    {
-            System.out.println("Введите пожалуйста имя владельца телефона");
-            Scanner command2 = new Scanner(System.in);
-            String newName = command2.nextLine();
-            phoneBook.put(newName,fullName);
+            if (Character.isDigit(fullName.charAt(0))) {
+
+                for (String key : phoneBook.keySet()) {
+                    if (phoneBook.containsValue(fullName)) {
+                        System.out.println("Данный номер принадлежит контакту: " + phoneBook.keySet());
+                    } else {
+                        System.out.println("Введите пожалуйста имя владельца телефона");
+                        Scanner command2 = new Scanner(System.in);
+                        String newName = command2.nextLine();
+                        phoneBook.put(newName, fullName);
                     }
-            }
-            else if(Character.isAlphabetic(fullName.charAt(0))) {
-                if(phoneBook.containsKey(fullName)){
-                    System.out.println("Данная личность имеет номер: "+phoneBook.get(fullName));
                 }
-                else {
+            } else if (Character.isAlphabetic(fullName.charAt(0))) {
+                if (phoneBook.containsKey(fullName)) {
+                    System.out.println("Данная личность имеет номер: " + phoneBook.get(fullName));
+                } else {
                     System.out.println("Введите пожалуйста номер телефона данного человека");
                     Scanner command3 = new Scanner(System.in);
                     String newNumber = command3.nextLine();
                     phoneBook.put(fullName, newNumber);
-                    }
-            }
-            else {
+                }
+            } else {
                 phoneBook.get(fullName);
             }
         }
     }
-    public static void printMap(TreeMap<String, String> map)
-    {
-       for (String key : map.keySet()) {
-           System.out.println(key + " " + map.get(key));
-       }
+
+    public static void printMap(TreeMap<String, String> map) {
+        for (String key : map.keySet()) {
+            System.out.println(key + " " + map.get(key));
+        }
     }
 
 }

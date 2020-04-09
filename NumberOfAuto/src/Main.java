@@ -20,7 +20,7 @@ TODO: Написать генератор «красивых» автомоби�
 public class Main
 {
     public static void main(String[] args) {
-        while (true) {
+
             ArrayList<String> list = new ArrayList<>();
             list.addAll(generateList(2000000));
             Collections.sort(list);
@@ -29,6 +29,7 @@ public class Main
             TreeSet<String> set1 = new TreeSet<>(list);
             Scanner scanner = new Scanner(System.in);
             String stateNumber = scanner.nextLine();
+        while (true) {
             long a = System.currentTimeMillis();
             System.out.println(list.equals(stateNumber));
             System.out.println(System.currentTimeMillis() - a);
