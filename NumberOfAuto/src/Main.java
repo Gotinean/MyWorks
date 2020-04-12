@@ -1,5 +1,9 @@
+import javafx.scene.input.KeyCode;
+
 import java.sql.Time;
 import java.util.*;
+
+import static javafx.scene.input.KeyCode.*;
 
 /*
 TODO: Написать генератор «красивых» автомобильных номеров и реализовать поиск элементов в списке:
@@ -20,45 +24,65 @@ TODO: Написать генератор «красивых» автомоби�
 public class Main
 {
     public static void main(String[] args) {
-
-            ArrayList<String> list = new ArrayList<>();
-            list.addAll(generateList(2000000));
+        ArrayList<String> list = new ArrayList<>(generateList());
+            for (int i = 0; i < list.size(); i++){
+                System.out.println(list.get(i));
+            }
             Collections.sort(list);
-            HashSet<String> set = new HashSet<>();
-            set.addAll(list);
+            HashSet<String> set = new HashSet<>(list);
             TreeSet<String> set1 = new TreeSet<>(list);
+        while (true) {
             Scanner scanner = new Scanner(System.in);
             String stateNumber = scanner.nextLine();
-        while (true) {
-            long a = System.currentTimeMillis();
-            System.out.println(list.equals(stateNumber));
-            System.out.println(System.currentTimeMillis() - a);
-            long b = System.currentTimeMillis();
-            System.out.println(Collections.binarySearch(list, stateNumber));
-            System.out.println(set.contains(stateNumber));
-            long c = System.currentTimeMillis();
-            System.out.println(set.contains(stateNumber));
-            System.out.println(System.nanoTime() - c);
-            long d = System.currentTimeMillis();
-            System.out.println(set1.contains(stateNumber));
-            System.out.println(System.nanoTime() - d);
+            long a = System.nanoTime();
+            if (list.contains(stateNumber)) {
+            System.out.println("Поиск перебором: номер найден, поиск занял: "+ (System.nanoTime() - a) +"нс");}
+            else {
+            System.out.println("Поиск перебором: номер не найден, поиск занял: "+ (System.nanoTime() - a)+"нс");}
+            long b = System.nanoTime();
+            if (Collections.binarySearch(list, stateNumber) == 0){
+            System.out.println("Бинарный поиск: номер найден, поиск занял: " + (System.nanoTime() - b)+"нс");}
+            else {
+            System.out.println("Бинарный поиск: номер не найден, поиск занял: " + (System.nanoTime() - b)+"нс");}
+            long c = System.nanoTime();
+            if (set.contains(stateNumber) == true){
+            System.out.println("Поиск в HashSet: номер найден, поиск занял: " + (System.nanoTime() - c)+"нс");}
+            else {
+            System.out.println("Поиск в HashSet: номер не найден, поиск занял: " + (System.nanoTime() - c)+"нс");}
+            long d = System.nanoTime();
+            if (set1.contains(stateNumber) == true){
+            System.out.println("Поиск в TreeSet: номер найден, поиск занял: " + (System.nanoTime() - d)+"нс");}
+            else {
+            System.out.println("Поиск в TreeSet: номер не найден, поиск занял: " + (System.nanoTime() - d)+"нс");}
         }
     }
 
-    private static List<String> generateList(int size) {
-        String[] letters = {"C","M","T","B","A","P","O","H","E","Y"};
-        String[] number =  {"1","2","3","4","5","6","7","8","9","0"};
-        List<String> numbers = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            int X = (int)Math.floor(Math.random() * letters.length);
-            int Y = (int)Math.floor(Math.random() * letters.length);
-            int Z = (int)Math.floor(Math.random() * letters.length);
-            int N = (int)Math.floor(Math.random() * number.length);
-            int R = (int)(Math.random()*199.0);
-            String govNumber = letters[X] + number[N] + number[N] + number[N] + letters[Y] + letters[Z] + R;
-            numbers.add(govNumber);
+    private static Collection<? extends String> generateList() {
 
+        String[] letters = {"C", "M", "T", "B", "A", "P", "O", "H", "E", "Y"};
+        String[] number = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+        List<String> numbers = new ArrayList<>();
+        String X = null;
+        String Y = null;
+        String Z = null;
+        String govNumber = null;
+        for (int i = 0; i < letters.length; i++) {
+            X = letters[i];
         }
+        for (int i = 0; i < letters.length; i++) {
+            Y = letters[i];
+        }
+        for (int i = 0; i < letters.length; i++) {
+            Z = letters[i];
+        }
+        String N = null;
+        for (String s : number) {
+            N = s;
+        }
+        for (int i = 0; i < 199; i++)
+
+            govNumber = X + N + N + N + Y + Z + i;
+        numbers.add(govNumber);
         return numbers;
     }
 }
