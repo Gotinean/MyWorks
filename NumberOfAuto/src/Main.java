@@ -1,9 +1,4 @@
-import javafx.scene.input.KeyCode;
-
-import java.sql.Time;
 import java.util.*;
-
-import static javafx.scene.input.KeyCode.*;
 
 /*
 TODO: Написать генератор «красивых» автомобильных номеров и реализовать поиск элементов в списке:
@@ -21,68 +16,54 @@ TODO: Написать генератор «красивых» автомоби�
  3- создать сканер для ввода номерного знака.
  4- создать поиск элементов в списке четыремя способами.
  */
-public class Main
-{
+public class Main {
     public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<>(generateList());
-            for (int i = 0; i < list.size(); i++){
-                System.out.println(list.get(i));
+        ArrayList<String> list = new ArrayList<>();
+        String number = null;
+        String[] letters = {"C", "M", "T", "B", "A", "P", "O", "H", "E", "Y"};
+        for (int i = 0; i < letters.length; i++) {
+            for (int j = 0; j < 10; j++) {
+                for (int k = 1; k < 199; k++) {
+                    String letter = letters[i];
+                    String region = String.valueOf(k);
+                    if (k < 10) {
+                        region = "0" + region;
+                    }
+                    number = String.format("%s%d%d%d%s%s%s", letter, j, j, j, letter, letter, region);
+                    list.add(number);
+                }
             }
-            Collections.sort(list);
-            HashSet<String> set = new HashSet<>(list);
-            TreeSet<String> set1 = new TreeSet<>(list);
+        }
+        Collections.sort(list);
+        HashSet<String> set = new HashSet<>(list);
+        TreeSet<String> set1 = new TreeSet<>(list);
         while (true) {
             Scanner scanner = new Scanner(System.in);
             String stateNumber = scanner.nextLine();
             long a = System.nanoTime();
             if (list.contains(stateNumber)) {
-            System.out.println("Поиск перебором: номер найден, поиск занял: "+ (System.nanoTime() - a) +"нс");}
-            else {
-            System.out.println("Поиск перебором: номер не найден, поиск занял: "+ (System.nanoTime() - a)+"нс");}
+                System.out.println("Поиск перебором: номер найден, поиск занял: " + (System.nanoTime() - a) + "нс");
+            } else {
+                System.out.println("Поиск перебором: номер не найден, поиск занял: " + (System.nanoTime() - a) + "нс");
+            }
             long b = System.nanoTime();
-            if (Collections.binarySearch(list, stateNumber) == 0){
-            System.out.println("Бинарный поиск: номер найден, поиск занял: " + (System.nanoTime() - b)+"нс");}
-            else {
-            System.out.println("Бинарный поиск: номер не найден, поиск занял: " + (System.nanoTime() - b)+"нс");}
+            if (Collections.binarySearch(list, stateNumber) == 0) {
+                System.out.println("Бинарный поиск: номер найден, поиск занял: " + (System.nanoTime() - b) + "нс");
+            } else {
+                System.out.println("Бинарный поиск: номер не найден, поиск занял: " + (System.nanoTime() - b) + "нс");
+            }
             long c = System.nanoTime();
-            if (set.contains(stateNumber) == true){
-            System.out.println("Поиск в HashSet: номер найден, поиск занял: " + (System.nanoTime() - c)+"нс");}
-            else {
-            System.out.println("Поиск в HashSet: номер не найден, поиск занял: " + (System.nanoTime() - c)+"нс");}
+            if (set.contains(stateNumber)) {
+                System.out.println("Поиск в HashSet: номер найден, поиск занял: " + (System.nanoTime() - c) + "нс");
+            } else {
+                System.out.println("Поиск в HashSet: номер не найден, поиск занял: " + (System.nanoTime() - c) + "нс");
+            }
             long d = System.nanoTime();
-            if (set1.contains(stateNumber) == true){
-            System.out.println("Поиск в TreeSet: номер найден, поиск занял: " + (System.nanoTime() - d)+"нс");}
-            else {
-            System.out.println("Поиск в TreeSet: номер не найден, поиск занял: " + (System.nanoTime() - d)+"нс");}
+            if (set1.contains(stateNumber)) {
+                System.out.println("Поиск в TreeSet: номер найден, поиск занял: " + (System.nanoTime() - d) + "нс");
+            } else {
+                System.out.println("Поиск в TreeSet: номер не найден, поиск занял: " + (System.nanoTime() - d) + "нс");
+            }
         }
-    }
-
-    private static Collection<? extends String> generateList() {
-
-        String[] letters = {"C", "M", "T", "B", "A", "P", "O", "H", "E", "Y"};
-        String[] number = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
-        List<String> numbers = new ArrayList<>();
-        String X = null;
-        String Y = null;
-        String Z = null;
-        String govNumber = null;
-        for (int i = 0; i < letters.length; i++) {
-            X = letters[i];
-        }
-        for (int i = 0; i < letters.length; i++) {
-            Y = letters[i];
-        }
-        for (int i = 0; i < letters.length; i++) {
-            Z = letters[i];
-        }
-        String N = null;
-        for (String s : number) {
-            N = s;
-        }
-        for (int i = 0; i < 199; i++)
-
-            govNumber = X + N + N + N + Y + Z + i;
-        numbers.add(govNumber);
-        return numbers;
     }
 }
