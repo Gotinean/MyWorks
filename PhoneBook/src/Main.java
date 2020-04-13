@@ -6,8 +6,7 @@ TODO:
  При вводе команды LIST программа должна печатать в консоль список всех абонентов в алфавитном порядке с номерами.
  */
 
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,23 +18,26 @@ public class Main {
                 printMap(phoneBook);
                 continue;
             }
+
             String[] parts = fullName.split(" ");
             if (parts.length > 1) {
-                phoneBook.put(parts[0],parts[1]);
-            }else {
-
-                if (Character.isDigit(fullName.charAt(0))) {
-                    for (String key : phoneBook.keySet()) {
-                        if (phoneBook.containsValue(fullName)) {
-                            System.out.println("Данный номер принадлежит контакту: " + phoneBook.keySet());
-                        } else {
-                            System.out.println("Введите пожалуйста имя владельца телефона");
-                            Scanner command2 = new Scanner(System.in);
-                            String newName = command2.nextLine();
-                            phoneBook.put(newName, fullName);
+                if (parts[0].matches("\\d+")) {
+                    phoneBook.put(parts[1], parts[0]);
+                } else phoneBook.put(parts[0], parts[1]);
+            } else {
+                if (fullName.matches("\\d+")) {
+                    if (phoneBook.containsValue(fullName)) {
+                        for (Map.Entry<String, String> item : phoneBook.entrySet()) {
+                            System.out.println(item.getKey() + ": " + item.getValue());
                         }
+                        System.out.println("Данный номер принадлежит контакту: " + phoneBook.keySet());
+                    } else {
+                        System.out.println("Введите пожалуйста имя владельца телефона");
+                        Scanner command2 = new Scanner(System.in);
+                        String newName = command2.nextLine();
+                        phoneBook.put(newName, fullName);
                     }
-                } else if (Character.isAlphabetic(fullName.charAt(0))) {
+                } else if (fullName.matches("\\D+")) {
                     if (phoneBook.containsKey(fullName)) {
                         System.out.println("Данная личность имеет номер: " + phoneBook.get(fullName));
                     } else {
@@ -44,6 +46,8 @@ public class Main {
                         String newNumber = command3.nextLine();
                         phoneBook.put(fullName, newNumber);
                     }
+                } else {
+                    System.out.println("Введнные вами имя или номер неправильного формата. Попробуйте ещё раз.");
                 }
             }
         }
@@ -53,6 +57,15 @@ public class Main {
         for (String key : map.keySet()) {
             System.out.println(key + " " + map.get(key));
         }
+    }
+
+    public static int linearSearch(TreeMap<String, String> map, String elementToSearch) {
+
+        for (int index = 0; index < map.size(); index++) {
+            if (map.containsKey(elementToSearch))
+                return index;
+        }
+        return -1;
     }
 
 }
