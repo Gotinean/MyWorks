@@ -28,9 +28,11 @@ public class Main {
                 if (fullName.matches("\\d+")) {
                     if (phoneBook.containsValue(fullName)) {
                         for (Map.Entry<String, String> item : phoneBook.entrySet()) {
-                            System.out.println(item.getKey() + ": " + item.getValue());
+                            if (item.getValue().equals(fullName)){
+                                String a = item.getKey();
+                            System.out.println("Данный номер принадлежит контакту: "+a);}
                         }
-                        System.out.println("Данный номер принадлежит контакту: " + phoneBook.keySet());
+
                     } else {
                         System.out.println("Введите пожалуйста имя владельца телефона");
                         Scanner command2 = new Scanner(System.in);
