@@ -4,12 +4,15 @@ public class PaymentAccount {
     String name;
     double balance = 1000;
 
+
     public void add (int amount){
         balance = balance + amount;
     }
 
     public void withdraw(double amount){
-        balance = balance - amount;
+        if (amount <= balance){
+        balance = balance - amount;}
+        else {balance = -1;}
     }
 
     public double getBalance(){
