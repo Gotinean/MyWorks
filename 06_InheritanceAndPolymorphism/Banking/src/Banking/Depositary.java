@@ -1,18 +1,19 @@
 package Banking;
 
-import com.sun.tools.javac.Main;
+import java.time.LocalDate;
 
 public class Depositary extends PaymentAccount
 {
-    double balance = 500;
-    @Override
-    public void add(int amount) {
+    LocalDate date = LocalDate.now();
+        public void add(int amount) {
         super.add(amount);
+            LocalDate date = LocalDate.now();
     }
 
-    @Override
-    public void withdraw(double amount) {
+
+    public void withdraw(double amount, LocalDate withdrawDate) {
         super.withdraw(amount);
+        withdrawDate = date.plusMonths(1);
     }
 
 }

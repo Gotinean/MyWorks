@@ -1,10 +1,6 @@
 package Banking;
 public class PaymentAccount {
-    int id;
-    String name;
-    double balance = 1000;
-
-
+    double balance = 0;
     public void add (int amount){
         balance = balance + amount;
     }
@@ -12,7 +8,7 @@ public class PaymentAccount {
     public void withdraw(double amount){
         if (amount <= balance){
         balance = balance - amount;}
-        else {balance = -1;}
+        else {balance = balance;}
     }
 
     public double getBalance(){

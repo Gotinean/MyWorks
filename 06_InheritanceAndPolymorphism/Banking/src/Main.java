@@ -1,6 +1,9 @@
 import Banking.Card;
 import Banking.Depositary;
 import Banking.PaymentAccount;
+
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +17,9 @@ public class Main {
                 " если вы хотите пополнить свой депозитарный счет, введите команду 'PUTDEPOSITORY' \n" +
                 " если вы хотите посмотреть остаток по счету введите команду 'DEPOSITBALANCE' \n" +
                 " если вы хотите снять деньги с депозитарного счета, введите команду 'WITHDRAWDEPOSITORY' \n");
+        PaymentAccount account = new PaymentAccount();
+        Depositary deposit = new Depositary();
+        Card card = new Card();
         while (true) {
             Scanner scanner = new Scanner(System.in);
             String command = scanner.nextLine();
@@ -25,15 +31,13 @@ public class Main {
             nr = Integer.parseInt(parts[1]);
             }
             else {action = command;}
-            PaymentAccount account = new PaymentAccount();
-            Depositary deposit = new Depositary();
-            Card card = new Card();
             if (action.equals("PUT")) {
                 account.add(nr);
                 System.out.println("Вы пополнили счет. Баланс вашего счета: " + account.getBalance());
             } else if (action.equals("WITHDRAW")) {
+                double oldBalance = account.getBalance();
                 account.withdraw(nr);
-                if (account.getBalance() == -1) {
+                if (account.getBalance() == oldBalance) {
                     System.out.println("На вашем счете недостаточно средств.");
                 }
                 else {
