@@ -3,6 +3,7 @@ import Banking.Depositary;
 import Banking.PaymentAccount;
 
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -57,10 +58,15 @@ public class Main {
                 deposit.add(nr);
                 System.out.println("Вы пополнили свой депозит. Баланс счета депозита: " + deposit.getBalance());
             } else if (action.equals("WITHDRAWDEPOSITORY")) {
-                card.withdraw(nr);
-                System.out.println("Вы сняли деньги с депозитарного счета. Баланс счета депозита: " + account.getBalance());
+                double a = deposit.getBalance();
+                deposit.withdraw(nr);
+                if(deposit.getBalance() == a){
+                    System.out.println("Вы не можете снять деньги с депозитарного счета на данный момент");
+                }
+                else {
+                System.out.println("Вы сняли деньги с депозитарного счета. Баланс счета депозита: " + account.getBalance());}
             } else if (action.equals("DEPOSITBALANCE")) {
-                System.out.println("Баланс Депозитного счета: " + card.getBalance());
+                System.out.println("Баланс Депозитного счета: " + deposit.getBalance());
 
             } else {
                 System.out.println("Вы ввели неверную команду, попробуйте снова");
