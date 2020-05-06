@@ -2,17 +2,14 @@ package Client;
 
 public class Entity extends Client
 {
-    public double balance = 0;
-
     @Override
     public double getBalance() {
-        return balance;
+        return super.getBalance();
     }
 
     @Override
     public double getPutmoney(double amount) {
-        balance = balance + amount;
-        return balance;
+        return super.getPutmoney(amount);
     }
 
     @Override

@@ -2,11 +2,9 @@ package Client;
 
 public class Individual extends Client
 {
-    public double balance = 0;
-
     @Override
     public double getBalance() {
-        return balance;
+        return super.getBalance();
     }
 
     @Override
@@ -23,12 +21,6 @@ public class Individual extends Client
 
     @Override
     public double getWithdrawMoney(double amount) {
-        if (amount > balance){
-            return balance;
-        }
-        else {
-            this.balance = balance - amount;
-            return balance - amount;
-        }
+        return super.getWithdrawMoney(amount);
     }
 }
