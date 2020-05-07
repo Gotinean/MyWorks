@@ -16,11 +16,11 @@ public abstract class Client
     public double getBalance() {
         return balance;
     }
-    public double getPutmoney(double amount){
+    public double Putmoney(double amount){
         balance = balance + amount;
         return balance;
     }
-    public double getWithdrawMoney(double amount){
+    public double WithdrawMoney(double amount){
         if (amount > balance){
             return balance;
         }
