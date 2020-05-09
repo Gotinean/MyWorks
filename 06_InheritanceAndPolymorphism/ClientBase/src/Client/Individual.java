@@ -2,7 +2,7 @@ package Client;
 
 public class Individual extends Client
 {
-    public double Putmoney(double amount) {
+    public double putMoney(double amount) {
         if(amount < 1000){
             balance = (balance + amount) * 0.99;
         return balance;

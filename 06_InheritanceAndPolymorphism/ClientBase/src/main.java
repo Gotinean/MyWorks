@@ -35,14 +35,14 @@ public class main
                     System.out.println("Недостаточно средств на вашем счете");
                 }
                 else {
-                    System.out.println("Вы сняли деньги со своего счета, Ваш баланс составляет: " + physical.WithdrawMoney(nr));
+                    System.out.println("Вы сняли деньги со своего счета, Ваш баланс составляет: " + physical.withdrawMoney(nr));
                 }
             }
             else if (action.equals("Put")){
-                System.out.println("Вы пополнили Ваш счет, Ваш баланс составляет: " + physical.Putmoney(nr));
+                System.out.println("Вы пополнили Ваш счет, Ваш баланс составляет: " + physical.putMoney(nr));
             }
             else if (action.equals("EPut")){
-                System.out.println("Вы пополнили Ваш счет, Ваш баланс составляет: " + entity.Putmoney(nr));
+                System.out.println("Вы пополнили Ваш счет, Ваш баланс составляет: " + entity.putMoney(nr));
             }
             else if (action.equals("EWith")){
                 double a = entity.getBalance();
@@ -50,14 +50,14 @@ public class main
                     System.out.println("Недостаточно средств на вашем счете");
                 }
                 else {
-                    System.out.println("Вы сняли деньги со своего счета, Ваш баланс составляет: " + entity.WithdrawMoney(nr));
+                    System.out.println("Вы сняли деньги со своего счета, Ваш баланс составляет: " + entity.withdrawMoney(nr));
                 }
             }
             else if (action.equals("EBalance")){
                 System.out.println("Ваш баланс составляет: " + entity.getBalance());
             }
             else if (action.equals("IPut")) {
-                System.out.println("Вы пополнили счет, Ваш баланс составляет: " + individual.Putmoney(nr));
+                System.out.println("Вы пополнили счет, Ваш баланс составляет: " + individual.putMoney(nr));
             }
             else if (action.equals("IWith")){
                 double a = individual.getBalance();
@@ -65,7 +65,7 @@ public class main
                     System.out.println("Недостаточно средств на вашем счете");
                 }
                 else {
-                    System.out.println("Вы сняли деньги со своего счета, Ваш баланс составляет: " + individual.WithdrawMoney(nr));
+                    System.out.println("Вы сняли деньги со своего счета, Ваш баланс составляет: " + individual.withdrawMoney(nr));
                 }
             }
             else if (action.equals("IBalance")){

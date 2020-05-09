@@ -2,7 +2,7 @@ package Client;
 
 public class Entity extends Client
 {
-    public double WithdrawMoney(double amount) {
+    public double withdrawMoney(double amount) {
         if (amount > balance){
             return balance;
         }
