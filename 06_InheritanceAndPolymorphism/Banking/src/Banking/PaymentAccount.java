@@ -1,6 +1,6 @@
 package Banking;
 public class PaymentAccount {
-    double balance = 0;
+    private double balance = 0;
     public void add (int amount){
         balance = balance + amount;
     }

@@ -1,6 +1,4 @@
 package Banking;
-
-import java.time.LocalDate;
 import java.util.Calendar;
 
 public class Depositary extends PaymentAccount
@@ -16,9 +14,9 @@ public class Depositary extends PaymentAccount
 
     public void withdraw(double amount) {
         if(Calendar.getInstance().compareTo(date) > 0){
-        balance = balance - amount;}
+        super.withdraw(amount);}
         else {
-            balance = balance - 0;
+            super.withdraw(amount - amount);
         }
 
     }

@@ -1,10 +1,6 @@
 import Banking.Card;
 import Banking.Depositary;
 import Banking.PaymentAccount;
-
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -51,7 +47,7 @@ public class Main {
                 System.out.println("Вы пополнили свой карточный счет. Баланс на карте: " + card.getBalance());
             } else if (action.equals("CARDWITHDRAW")) {
                 card.withdraw(nr);
-                System.out.println("Вы сняли денег с карты. Баланс на карте: " + account.getBalance());
+                System.out.println("Вы сняли денег с карты. Баланс на карте: " + card.getBalance());
             } else if (action.equals("CARDBALANCE")) {
                 System.out.println("Баланс счета на вашей карте:" + card.getBalance());
             } else if (action.equals("PUTDEPOSITORY")) {
