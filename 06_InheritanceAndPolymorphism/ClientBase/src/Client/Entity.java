@@ -2,13 +2,9 @@ package Client;
 
 public class Entity extends Client
 {
+    @Override
     public double withdrawMoney(double amount) {
-        if (amount > balance){
-            return balance;
-        }
-        else {
-            balance = (balance - amount) * 0.99;
-            return balance;
-        }
+        return super.withdrawMoney(amount) * 0.99;
+
     }
 }

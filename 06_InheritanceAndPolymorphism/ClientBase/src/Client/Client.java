@@ -2,7 +2,7 @@ package Client;
 
 public abstract class Client
 {
-    public double balance = 0;
+    private double balance = 0;
     private String client;
 
     public String getClient() {

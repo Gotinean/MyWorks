@@ -4,12 +4,10 @@ public class Individual extends Client
 {
     public double putMoney(double amount) {
         if(amount < 1000){
-            balance = (balance + amount) * 0.99;
-        return balance;
+           return super.putMoney(amount) * 0.99;
         }
         else {
-            balance = (balance + amount) * 0.995;
-            return balance ;
+            return super.putMoney(amount) * 0.995;
         }
     }
 }
