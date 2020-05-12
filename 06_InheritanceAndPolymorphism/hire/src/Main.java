@@ -5,9 +5,13 @@ import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Employee> managers = new ArrayList<Employee>();
-        managers.add(new Manager());
-        managers.add(new Operator());
-        managers.add(new TopManager());
+        Company company = new Company();
+        String person = null;
+        for(int i = 0; i < 270; i++){
+            person = "Person" + i;
+            company.getEmployee().add(i,person);
+        }
+        System.out.println(company.getEmployee().size());
+
     }
 }
