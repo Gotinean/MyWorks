@@ -2,13 +2,16 @@ package Hire;
 
 import java.util.Random;
 
-public class Manager extends Company implements Employee
+public class Manager implements Employee
 {
+    double salary;
+    public Manager(){
+        int sale = (int) (Math.random()* 10);
+        this.salary = sale * 0.05;
+    }
     @Override
-    public double getMonthSalary(double amount) {
-        double sale = Math.random()* 500000;
-        amount = sale * 0.05;
-        return amount;
+    public double getMonthSalary() {
+        return salary;
     }
 }
 

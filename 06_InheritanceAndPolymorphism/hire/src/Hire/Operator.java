@@ -1,8 +1,13 @@
 package Hire;
 
-public class Operator extends Company implements Employee {
+public class Operator implements Employee {
+    double salary;
+    public Operator()
+    {
+        this.salary = 20000;
+    }
     @Override
-    public double getMonthSalary(double amount) {
-        return 20000;
+    public double getMonthSalary() {
+        return salary;
     }
 }

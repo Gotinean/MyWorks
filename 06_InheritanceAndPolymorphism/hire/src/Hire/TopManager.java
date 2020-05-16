@@ -1,16 +1,23 @@
 package Hire;
 
-public class TopManager extends Company implements Employee {
-    @Override
-    public double getMonthSalary(double amount) {
+public class TopManager implements Employee {
+    double salary;
+    Company company = new Company();
+    public TopManager(){
         int rate = 50000;
-        if(sales > 10000000){
-            amount = rate + rate*1.5;
+        double income = company.getIncome();
+        if(income > 10000000){
+            salary = rate + rate*1.5;
         }
         else {
-            amount = rate;
+            salary = rate;
         }
-        return amount;
+    }
+    @Override
+    public double getMonthSalary() {
+        return salary;
     }
 
 }
+
+

@@ -1,43 +1,49 @@
 package Hire;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Company
 {
     double sales;
-    ArrayList<String> Employee = new ArrayList<>();
     private Object Manager;
     private Object Operator;
     private Object TopManager;
+    ArrayList<Employee> employees = new ArrayList<>();
 
-    public ArrayList<String> getEmployee() {
-        return Employee;
+    public void getHireOperator(ArrayList<Integer> persone, int id){
+        employees.add(new Operator());
     }
-    public Employee getHireOperator(){
-        for(int i = 0; i < 180; i++){
-            Employee.equals(i);
-        }
-        return (Hire.Employee) Operator;
+    public void getHireManager(ArrayList<Integer> persone, int id){
+        employees.add(new Manager());
     }
-    public Employee getHireManager(){
-        for (int i = 180; i < 260; i++){
-            Employee.equals(i);
-        }
-        return (Hire.Employee) Manager;
+    public void getHireTopManager(ArrayList<Integer> persone, int id){
+        employees.add(new TopManager());
     }
-    public Employee getHireTopManager(){
-        for(int i = 180; i < 270; i++){
-            Employee.equals(i);
-        }
-        return (Hire.Employee) TopManager;
+    public void getFireOperator(int id){
+        employees.remove(Operator);
     }
-    public void getFire(){
-
+    public void getFireManager(int id){
+        employees.remove(Manager);
     }
-    public void getHireAll(){
-
+    public void getFireTopManager(int id){
+        employees.remove(TopManager);
+    }
+    public void getHireAllOperators(){
+        employees.addAll((Collection<? extends Employee>) new Operator());
+    }
+    public void getHireAllManagers(){
+        employees.addAll((Collection<? extends Employee>) new Manager());
+    }
+    public void getHireAllTopManagers(){
+        employees.addAll((Collection<? extends Employee>) new TopManager());
     }
     public double getIncome(){
-        return 0;
+        long j;
+        j = (int) employees.get(198).getMonthSalary();
+        for(int i = 180; i < 270; i++){
+            j = (int) ((j + employees.get(i).getMonthSalary()) * 20);
+        }
+        return j;
     }
 }
