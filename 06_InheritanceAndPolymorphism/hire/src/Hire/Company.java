@@ -5,7 +5,6 @@ import java.util.Collection;
 
 public class Company
 {
-    double sales;
     private Object Manager;
     private Object Operator;
     private Object TopManager;
@@ -22,6 +21,7 @@ public class Company
     }
     public void getFireOperator(int id){
         employees.remove(Operator);
+        //Я не понимаю, как реализовать эти методы? я верно выбрал тактику?
     }
     public void getFireManager(int id){
         employees.remove(Manager);
@@ -31,6 +31,7 @@ public class Company
     }
     public void getHireAllOperators(){
         employees.addAll((Collection<? extends Employee>) new Operator());
+        //а с этими, так вообще беда, нужно 3 метода для каждого из классов сотрудников? или можно как-то реализовать одним?
     }
     public void getHireAllManagers(){
         employees.addAll((Collection<? extends Employee>) new Manager());
@@ -39,6 +40,9 @@ public class Company
         employees.addAll((Collection<? extends Employee>) new TopManager());
     }
     public double getIncome(){
+        //и самое интересное, когда я кидаю класс топ мэнеджер в комменты и всё что с ним связано,
+        // у меня считает все и выдает цифры, хоть и очень большие(больше возможного диапазона),
+        //а с топом, мне ошибку выдает.
         long j;
         j = (int) employees.get(198).getMonthSalary();
         for(int i = 180; i < 270; i++){
