@@ -2,26 +2,48 @@ import Hire.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
-        Generation generation = new Generation();
-        ArrayList <Integer> persone = new ArrayList<>();
-        for(int i = 0; i < 280; i++){
-            int newPersone = generation.getNewPersone();
-            persone.add(i,newPersone);
-        }
         Company company = new Company();
-        for(int i = 0; i < 180; i++) {
-            company.getHireOperator(persone,i);
+        Operator operator = new Operator();
+        Manager manager = new Manager();
+        TopManager topManager = new TopManager(company);
+        List<Employee> operators = new ArrayList<>();
+        List<Employee> managers = new ArrayList<>();
+        List<Employee> topManagers = new ArrayList<>();
+        for (int i = 0; i < 180; i++) {
+            operators.add(new Operator());
         }
-        for(int i = 180; i < 270; i++) {
-            company.getHireManager(persone,i);
+        company.hireAll(operator);
+        for(int i = 0; i < 80; i++){
+            managers.add(new Manager());
         }
-        for(int i = 270; i < 280; i++) {
-            company.getHireTopManager(persone,i);
+        company.hireAll(manager);
+        for(int i = 0; i < 10; i++){
+            topManagers.add(new TopManager(company));
         }
-        System.out.println(company.getIncome());
+        company.hireAll(topManager);
+        System.out.println("До увольнения: \n");
+        for(Employee employee : company.getTopSalaryStaff(15)){
+            System.out.println(employee.getMonthSalary() + "руб");
+        }
+        System.out.println("" + "\n");
+        for(Employee employee : company.getLowestSalaryStaff(30)){
+            System.out.println(employee.getMonthSalary() + "руб");
+        }
+
+        company.fire(90);
+        System.out.println("После увольнения: \n");
+        for(Employee employee : company.getTopSalaryStaff(15)){
+            System.out.println(employee.getMonthSalary() + "руб");
+        }
+        System.out.println("" + "\n");
+        for(Employee employee : company.getLowestSalaryStaff(30)){
+            System.out.println(employee.getMonthSalary() + "руб");
+        }
+
     }
 }

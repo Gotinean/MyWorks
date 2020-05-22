@@ -4,14 +4,20 @@ import java.util.Random;
 
 public class Manager implements Employee
 {
-    double salary;
+    private double salary;
+    private int sale;
+    public double getSale() {
+        this.sale = (int) (Math.random() * 400000);
+        return sale ;
+    }
     public Manager(){
-        int sale = (int) (Math.random()* 10);
-        this.salary = sale * 0.05;
+        int rate = 25000;
+        this.salary = sale * 0.05 + rate;
     }
     @Override
     public double getMonthSalary() {
         return salary;
     }
+
 }
 

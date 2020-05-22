@@ -1,9 +1,13 @@
 package Hire;
 
 public class TopManager implements Employee {
-    double salary;
-    Company company = new Company();
-    public TopManager(){
+    private final Company company;
+    private double salary;
+    public TopManager(Company company){
+        this.company = company;
+    }
+    @Override
+    public double getMonthSalary() {
         int rate = 50000;
         double income = company.getIncome();
         if(income > 10000000){
@@ -12,10 +16,11 @@ public class TopManager implements Employee {
         else {
             salary = rate;
         }
+        return salary;
     }
     @Override
-    public double getMonthSalary() {
-        return salary;
+    public double getSale() {
+        return 0;
     }
 
 }
