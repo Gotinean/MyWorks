@@ -16,8 +16,7 @@ public class Company
         this.employees.addAll(employees);
     }
     public void fire(int capacity){
-        int count = ((employees.size() / 1)*capacity) / 100;
-        for(int i = 0; i < count; i++) {
+        for(int i = 0; i < capacity; i++) {
             employees.remove(employees.get(i));
         }
     }
@@ -28,24 +27,24 @@ public class Company
         return companyIncome;
     }
     public List<Employee> getTopSalaryStaff(int count){
-//        List<Employee> employeeListTop = new ArrayList<>();
-//        employeeListTop.sort(new SalaryComparator());
+        List<Employee> employeeListTop = new ArrayList<>();
+        for(int i = 0; i < count; i++){
+            employeeListTop.add(employees.get(i));
+        }
+        employeeListTop.sort((employee, employee2) -> Double.compare(employee.getMonthSalary(), employee2.getMonthSalary()));
         employees.sort(Comparator.comparingDouble(Employee::getMonthSalary));
         Collections.reverse(employees);
-//        for(int i = 0; i < count; i++){
-//            employeeListTop.add(employees.get(i));
-//        }
-
         return employees.subList(0, count);
     }
     public List<Employee> getLowestSalaryStaff(int count){
-//        List<Employee> employeeList = new ArrayList<>();
-//        employeeList.sort(new SalaryComparator());
+        List<Employee> employeeList = new ArrayList<>();
+        for(int i = 0; i < count; i++){
+            employeeList.add(employees.get(i));
+        }
+        employeeList.sort((employee, employee2) -> Double.compare(employee2.getMonthSalary(), employee.getMonthSalary()));
         employees.sort(Comparator.comparingDouble(Employee::getMonthSalary));
-        Collections.reverse(employees);
-//        for(int i = 0; i < count; i++){
-//            employeeList.add(employees.get(i));
-//        }
-        return employees.subList(count, 0);
+        Collections.reverse(employeeList);
+
+        return employees.subList(0, count);
     }
 }

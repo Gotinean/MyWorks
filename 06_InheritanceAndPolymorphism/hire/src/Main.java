@@ -16,16 +16,16 @@ public class Main {
         List<Employee> topManagers = new ArrayList<>();
         for (int i = 0; i < 180; i++) {
             operators.add(new Operator());
+            company.hire(operator);
         }
-        company.hireAll(operator);
         for(int i = 0; i < 80; i++){
             managers.add(new Manager());
+            company.hire(manager);
         }
-        company.hireAll(manager);
         for(int i = 0; i < 10; i++){
             topManagers.add(new TopManager(company));
+            company.hire(topManager);
         }
-        company.hireAll(topManager);
         System.out.println("До увольнения: \n");
         for(Employee employee : company.getTopSalaryStaff(15)){
             System.out.println(employee.getMonthSalary() + "руб");
