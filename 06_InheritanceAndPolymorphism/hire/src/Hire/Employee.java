@@ -1,7 +1,6 @@
 package Hire;
 
-public interface Employee
-{
+public interface Employee {
     double getMonthSalary();
     double getSale();
 
