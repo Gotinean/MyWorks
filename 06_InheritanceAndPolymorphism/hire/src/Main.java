@@ -3,18 +3,18 @@ import Hire.*;
 public class Main {
     public static void main(String[] args) {
         Company company = new Company();
-        Operator operator = new Operator();
-        Manager manager = new Manager(3000);
-        TopManager topManager = new TopManager(company);
         for (int i = 0; i < 180; i++) {
+            Operator operator = new Operator();
             company.hire(operator);
         }
 
         for (int i = 0; i < 80; i++) {
+            Manager manager = new Manager(3000);
             company.hire(manager);
         }
 
         for (int i = 0; i < 10; i++) {
+            TopManager topManager = new TopManager(company);
             company.hire(topManager);
         }
 

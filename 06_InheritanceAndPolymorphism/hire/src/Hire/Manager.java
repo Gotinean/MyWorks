@@ -9,7 +9,7 @@ public class Manager implements Employee {
     }
 
     public Manager(double sale1) {
-        this.sale = sale1;
+        this.sale = (double) (sale1 * Math.random());
         int rate = 25000;
         this.salary = sale * 0.05 + rate;
     }
