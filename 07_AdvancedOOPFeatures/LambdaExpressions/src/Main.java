@@ -11,12 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
         ArrayList<Employee> staff = loadStaffFromFile();
-        Collections.sort(staff, Comparator.comparing((Employee employee1) -> employee1.getSalary()).thenComparing(employee2 -> employee2.getWorkStart()));
-        for (Employee employee : staff) {
-            System.out.println(employee);
-        }
+        staff.stream().filter(employee -> employee.getWorkStart().getYear() == 2017).mapToInt(Employee::getSalary).max().ifPresent(System.out::println);
     }
-
+//
     private static ArrayList<Employee> loadStaffFromFile() {
         ArrayList<Employee> staff = new ArrayList<>();
         try {
