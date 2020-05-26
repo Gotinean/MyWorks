@@ -10,9 +10,18 @@ public class Main {
     private static String dateFormat = "dd.MM.yyyy";
 
     public static void main(String[] args) {
+        Calendar calendar = new GregorianCalendar();
+        Calendar calendar1 = new GregorianCalendar();
+        calendar.set(Calendar.YEAR,2016);
+        calendar1.set(Calendar.YEAR,2018);
+        Date date = calendar.getTime();
+        Date date1 = calendar1.getTime();
         ArrayList<Employee> staff = loadStaffFromFile();
-        staff.stream().filter(employee -> employee.getWorkStart().getYear() == 2017).mapToInt(Employee::getSalary).max().ifPresent(System.out::println);
+        staff.stream().filter(employee -> employee.getWorkStart().after(date)).
+                filter(employee -> employee.getWorkStart().before(date1))
+                .mapToInt(Employee::getSalary).max().ifPresent(System.out::println);
     }
+
 //
     private static ArrayList<Employee> loadStaffFromFile() {
         ArrayList<Employee> staff = new ArrayList<>();
