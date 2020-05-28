@@ -13,6 +13,6 @@ public class Customer
 
     public String toString()
     {
-        return name + " - " + eMail + " - " + phone;
+        return name + " - " + eMail + " - " + "+" + phone;
     }
 }
