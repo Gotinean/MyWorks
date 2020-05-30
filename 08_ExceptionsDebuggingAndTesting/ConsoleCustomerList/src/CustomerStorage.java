@@ -6,6 +6,7 @@ public class CustomerStorage
     private HashMap<String, Customer> storage;
     Pattern pattern = Pattern.compile("\\d+");
     Pattern pattern1 = Pattern.compile("^(\\S+)@([a-z0-9-]+)(\\.)([a-z]{2,4})(\\.?)([a-z]{0,4})+$");
+    Pattern pattern2 = Pattern.compile("\\D+");
 
 
     public CustomerStorage()
@@ -19,24 +20,38 @@ public class CustomerStorage
         String name = components[0] + " " + components[1];
         String email = components[2];
         String phone = components[3];
-        if (email.matches(String.valueOf(pattern1)) && (phone.matches(String.valueOf(pattern)))){
-            storage.put(name, new Customer(name, email, phone));
+        if (components[0].matches(String.valueOf(pattern2)) && (components[1].matches(String.valueOf(pattern2)))){
+            if(email.matches(String.valueOf(pattern1))){
+                if (phone.matches(String.valueOf(pattern))){
+                    storage.put(name, new Customer(name, email, phone));
+                }
+                else {System.out.println("Неверный формат ввода номера телефона, пример: 79215637722");}
+            }
+            else {System.out.println("Неверный формат ввода e-mail, пример: my@mail.com");}
         }
         else {
-            System.out.println("Вы ввели неправильные данные, Проверьте правильность ввода E-mail или номера телефона и попробуйте ещё раз");
+            System.out.println("Неверный формат ввода имени и фамилии, пример: Иван Иванов");
         }
-
-
     }
 
     public void listCustomers() throws Exception
     {
-        storage.values().forEach(System.out::println);
+        if(storage.size() != 0) {
+            storage.values().forEach(System.out::println);
+        }
+        else {
+            System.out.println("Список пока-что пуст, сначала введите 1 и/или более личностей ");
+        }
     }
 
     public void removeCustomer(String name) throws Exception
     {
-        storage.remove(name);
+        if(storage.equals(name)) {
+            storage.remove(name);
+        }
+        else {
+            System.out.println("Данной личности итак нет в нашем списке");
+        }
     }
 
     public int getCount() throws Exception
