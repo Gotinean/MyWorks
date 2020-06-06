@@ -1,104 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a5e1234-1100-4917-9bdf-687150e205e8" name="Default Changelist" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="8a5e1234-1100-4917-9bdf-687150e205e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/json-20200518.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RouteCalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/core/Line.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="22" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="14" column="57" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/map.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3268">
-              <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/StationIndex.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/core/Station.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/RouteCalculator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="35" column="42" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/RouteCalculatorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -107,15 +20,8 @@
       </list>
     </option>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/RouteCalculator.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RouteCalculatorTest.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-      </list>
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -124,120 +30,44 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="spb-metro" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="spb-metro" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SPBMetro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SPBMetro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SPBMetro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SPBMetro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SPBMetro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SPBMetro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SPBMetro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SPBMetro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SPBMetro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SPBMetro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SPBMetro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SPBMetro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SPBMetro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SPBMetro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SPBMetro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SPBMetro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectId" id="1cgRzNtrH3YddnqZc1TUNOWHuyS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559622580090" />
+    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/junit/junit/4.12" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Артём\java_basics\08_ExceptionsDebuggingAndTesting\SPBMetro\lib" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in spb-metro">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="spb-metro" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SPBMetro" />
@@ -253,8 +83,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in spb-metro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spb-metro" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in spb-metro" />
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in SPBMetro" />
       </list>
@@ -273,144 +113,49 @@
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="All_in_SPBMetro - 2019.06.03 at 18h 00m 44s.xml">
-      <configuration name="All in SPBMetro" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SPBMetro - 2019.06.03 at 18h 05m 21s.xml">
-      <configuration name="All in SPBMetro" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SPBMetro - 2019.06.03 at 18h 24m 12s.xml">
-      <configuration name="All in SPBMetro" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SPBMetro - 2019.06.03 at 18h 24m 57s.xml">
-      <configuration name="All in SPBMetro" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SPBMetro - 2019.06.03 at 18h 25m 45s.xml">
-      <configuration name="All in SPBMetro" configurationId="JUnit" />
-    </history-entry>
+  <component name="WindowStateProjectService">
+    <state x="77" y="103" key="#Main_(1)" timestamp="1591208092252">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="77" y="103" key="#Main_(1)/0.0.1440.860@0.0.1440.860" timestamp="1591208092252" />
+    <state x="426" y="171" key="FileChooserDialogImpl" timestamp="1591117673471">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="426" y="171" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1591117673471" />
+    <state width="1233" height="218" key="GridCell.Tab.0.bottom" timestamp="1591386225892">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1233" height="218" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1591386225892" />
+    <state width="1233" height="218" key="GridCell.Tab.0.center" timestamp="1591386225892">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1233" height="218" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1591386225892" />
+    <state width="1233" height="218" key="GridCell.Tab.0.left" timestamp="1591386225892">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1233" height="218" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1591386225892" />
+    <state width="1233" height="218" key="GridCell.Tab.0.right" timestamp="1591386225892">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1233" height="218" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1591386225892" />
+    <state x="358" y="8" key="SettingsEditor" timestamp="1591117862684">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="358" y="8" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1591117862684" />
+    <state x="415" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1591429028674">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="415" y="253" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1591429028674" />
+    <state x="424" y="323" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591117660631">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="424" y="323" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1440.860@0.0.1440.860" timestamp="1591117660631" />
+    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1591384273770">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1591384273770" />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="1" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3299363" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3299363" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.27110156" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/map.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3268">
-          <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/StationIndex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/core/Station.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RouteCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="35" column="42" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/map.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="14" column="57" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/core/Line.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RouteCalculatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>11</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SPBMetro$All_in_spb_metro.ic" NAME="All in spb-metro Coverage Results" MODIFIED="1591385895195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
