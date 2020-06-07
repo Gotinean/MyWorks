@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a5e1234-1100-4917-9bdf-687150e205e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/json-20200518.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/RouteCalculatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RouteCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RouteCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RouteCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RouteCalculatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,25 +58,10 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in spb-metro">
+  <component name="RunManager" selected="JUnit.RouteCalculatorTest.testGetShortestRoute">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="spb-metro" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="SPBMetro" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in SPBMetro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SPBMetro" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -91,12 +74,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RouteCalculatorTest.testGetRouteOnTheLine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spb-metro" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RouteCalculatorTest" />
+      <option name="METHOD_NAME" value="testGetRouteOnTheLine" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RouteCalculatorTest.testGetRouteWithTwoConnections" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spb-metro" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RouteCalculatorTest" />
+      <option name="METHOD_NAME" value="testGetRouteWithTwoConnections" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RouteCalculatorTest.testGetShortestRoute" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spb-metro" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RouteCalculatorTest" />
+      <option name="METHOD_NAME" value="testGetShortestRoute" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RouteCalculatorTest.testGetShortestRoute" />
         <item itemvalue="JUnit.All in spb-metro" />
+        <item itemvalue="JUnit.RouteCalculatorTest.testGetRouteWithTwoConnections" />
+        <item itemvalue="JUnit.RouteCalculatorTest.testGetRouteOnTheLine" />
         <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.All in SPBMetro" />
       </list>
     </recent_temporary>
   </component>
@@ -118,38 +132,70 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="77" y="103" key="#Main_(1)/0.0.1440.860@0.0.1440.860" timestamp="1591208092252" />
+    <state x="317" y="80" key="#RouteCalculatorTest.testGetShortestRoute" timestamp="1591544713101">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="317" y="80" key="#RouteCalculatorTest.testGetShortestRoute/0.0.1440.860@0.0.1440.860" timestamp="1591544713101" />
+    <state x="289" y="24" key="CommitChangelistDialog2" timestamp="1591429291776">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="289" y="24" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1591429291776" />
     <state x="426" y="171" key="FileChooserDialogImpl" timestamp="1591117673471">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="426" y="171" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1591117673471" />
-    <state width="1233" height="218" key="GridCell.Tab.0.bottom" timestamp="1591386225892">
+    <state width="1227" height="347" key="GridCell.Tab.0.bottom" timestamp="1591553669286">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1233" height="218" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1591386225892" />
-    <state width="1233" height="218" key="GridCell.Tab.0.center" timestamp="1591386225892">
+    <state width="1227" height="347" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1591553669286" />
+    <state width="1227" height="347" key="GridCell.Tab.0.center" timestamp="1591553669286">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1233" height="218" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1591386225892" />
-    <state width="1233" height="218" key="GridCell.Tab.0.left" timestamp="1591386225892">
+    <state width="1227" height="347" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1591553669286" />
+    <state width="1227" height="347" key="GridCell.Tab.0.left" timestamp="1591553669285">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1233" height="218" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1591386225892" />
-    <state width="1233" height="218" key="GridCell.Tab.0.right" timestamp="1591386225892">
+    <state width="1227" height="347" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1591553669285" />
+    <state width="1227" height="347" key="GridCell.Tab.0.right" timestamp="1591553669286">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1233" height="218" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1591386225892" />
+    <state width="1227" height="347" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1591553669286" />
+    <state width="1227" height="303" key="GridCell.Tab.1.bottom" timestamp="1591552347676">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1227" height="303" key="GridCell.Tab.1.bottom/0.0.1440.860@0.0.1440.860" timestamp="1591552347676" />
+    <state width="1227" height="303" key="GridCell.Tab.1.center" timestamp="1591552347676">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1227" height="303" key="GridCell.Tab.1.center/0.0.1440.860@0.0.1440.860" timestamp="1591552347676" />
+    <state width="1227" height="303" key="GridCell.Tab.1.left" timestamp="1591552347676">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1227" height="303" key="GridCell.Tab.1.left/0.0.1440.860@0.0.1440.860" timestamp="1591552347676" />
+    <state width="1227" height="303" key="GridCell.Tab.1.right" timestamp="1591552347676">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1227" height="303" key="GridCell.Tab.1.right/0.0.1440.860@0.0.1440.860" timestamp="1591552347676" />
     <state x="358" y="8" key="SettingsEditor" timestamp="1591117862684">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="358" y="8" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1591117862684" />
-    <state x="415" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1591429028674">
+    <state x="415" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1591547473181">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="415" y="253" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1591429028674" />
+    <state x="415" y="253" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1591547473181" />
     <state x="424" y="323" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591117660631">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="424" y="323" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1440.860@0.0.1440.860" timestamp="1591117660631" />
+    <state x="248" y="165" width="944" height="566" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1591544206761">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="248" y="165" width="944" height="566" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1440.860@0.0.1440.860" timestamp="1591544206761" />
+    <state x="539" y="257" key="export.test.results" timestamp="1591540773012">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="539" y="257" key="export.test.results/0.0.1440.860@0.0.1440.860" timestamp="1591540773012" />
     <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1591384273770">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
@@ -157,5 +203,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SPBMetro$All_in_spb_metro.ic" NAME="All in spb-metro Coverage Results" MODIFIED="1591385895195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SPBMetro$RouteCalculatorTest_testGetShortestRoute.ic" NAME="RouteCalculatorTest.testGetShortestRoute Coverage Results" MODIFIED="1591540721515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
