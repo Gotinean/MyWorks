@@ -1,17 +1,22 @@
 import core.Line;
 import core.Station;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 public class Main
 {
+    private static Logger logger;
+
     private static String dataFile = "src/main/resources/map.json";
     private static Scanner scanner;
 
@@ -20,6 +25,7 @@ public class Main
     public static void main(String[] args)
     {
         RouteCalculator calculator = getRouteCalculator();
+        logger = LogManager.getRootLogger();
 
         System.out.println("Программа расчёта маршрутов метрополитена Санкт-Петербурга\n");
         scanner = new Scanner(System.in);
@@ -35,6 +41,7 @@ public class Main
             System.out.println("Длительность: " +
                 RouteCalculator.calculateDuration(route) + " минут");
         }
+
     }
 
     private static RouteCalculator getRouteCalculator()
@@ -71,8 +78,10 @@ public class Main
             String line = scanner.nextLine().trim();
             Station station = stationIndex.getStation(line);
             if(station != null) {
+                logger.info("Искали станцию: " + station);
                 return station;
             }
+            logger.error("Неверная станция: " + line);
             System.out.println("Станция не найдена :(");
         }
     }
@@ -160,6 +169,7 @@ public class Main
         }
         catch (Exception ex) {
             ex.printStackTrace();
+            logger.debug(ex.getMessage());
         }
         return builder.toString();
     }
