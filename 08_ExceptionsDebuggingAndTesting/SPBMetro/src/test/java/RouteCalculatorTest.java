@@ -51,9 +51,6 @@ public class RouteCalculatorTest extends TestCase {
         list1.add(station4);
         stationIndex.addConnection(list1);
     }
-//    public List<Station> getList(String... names){
-//
-//    }
 
     public void testСalculateDuration(){
         double actual = RouteCalculator.calculateDuration(route);

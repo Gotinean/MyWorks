@@ -25,7 +25,7 @@ public class Main
     public static void main(String[] args)
     {
         RouteCalculator calculator = getRouteCalculator();
-        logger = LogManager.getRootLogger();
+        logger = LogManager.getLogger();
 
         System.out.println("Программа расчёта маршрутов метрополитена Санкт-Петербурга\n");
         scanner = new Scanner(System.in);
@@ -78,7 +78,7 @@ public class Main
             String line = scanner.nextLine().trim();
             Station station = stationIndex.getStation(line);
             if(station != null) {
-                logger.info("Искали станцию: " + station);
+                logger.info("Искали станцию: " + line);
                 return station;
             }
             logger.error("Неверная станция: " + line);
@@ -105,6 +105,7 @@ public class Main
         }
         catch(Exception ex) {
             ex.printStackTrace();
+            logger.debug(ex.getMessage());
         }
     }
 
