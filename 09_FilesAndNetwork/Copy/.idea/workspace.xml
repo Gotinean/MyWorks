@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3ab1c07d-7272-4101-908b-6c5db06e0666" name="Default Changelist" comment="CopyFiles" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1e5rvrIv7vy3CufrBRh9WfRvv5f" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="CopyFiles" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CopyFiles" />
+      <module name="Copy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CopyFiles" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3ab1c07d-7272-4101-908b-6c5db06e0666" name="Default Changelist" comment="" />
+      <created>1593622528418</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593622528418</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="287" y="27" key="CommitChangelistDialog2" timestamp="1593624841187">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="287" y="27" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1593624841187" />
+    <state x="512" y="196" key="FileChooserDialogImpl" timestamp="1593624799037">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="512" y="196" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1593624799037" />
+    <state width="1397" height="222" key="GridCell.Tab.0.bottom" timestamp="1593624870171">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1593624870171" />
+    <state width="1397" height="222" key="GridCell.Tab.0.center" timestamp="1593624870171">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1593624870171" />
+    <state width="1397" height="222" key="GridCell.Tab.0.left" timestamp="1593624870171">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1593624870171" />
+    <state width="1397" height="222" key="GridCell.Tab.0.right" timestamp="1593624870171">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1593624870171" />
+    <state x="415" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1593624898209">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="415" y="254" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1593624898209" />
+  </component>
+</project>
