@@ -8,4 +8,12 @@ public class Expenses {
         this.expensesValue = expensesValue;
     }
 
+    @Override
+    public String toString() {
+        return "Expenses{" +
+                "Имя операции: " + name + '\'' +
+                ", Доход: " + incomeValue +
+                ", Расход: " + expensesValue +
+                '}';
+    }
 }
