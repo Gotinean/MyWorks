@@ -28,6 +28,7 @@ public class CSVParsing {
         System.out.println("Общие расходы равны:  " + sumExpenses(expenses));
         System.out.println("Общие доходы равны: " + sumIncome(expenses));
         checkList(expenses);
+        checkList(expenses);
         for (Expenses expense : expenses) {
             System.out.println(expense.toString());
         }
