@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ab1c07d-7272-4101-908b-6c5db06e0666" name="Default Changelist" comment="CopyFiles" />
+    <list default="true" id="3ab1c07d-7272-4101-908b-6c5db06e0666" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,13 +66,25 @@
       <option name="presentableId" value="Default" />
       <updated>1593622528418</updated>
     </task>
+    <task id="LOCAL-00001" summary="CopyFiles">
+      <created>1593624945918</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593624945918</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="CopyFiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="CopyFiles" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="287" y="27" key="CommitChangelistDialog2" timestamp="1593624841187">
+    <state x="287" y="27" key="CommitChangelistDialog2" timestamp="1593624945156">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="287" y="27" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1593624841187" />
+    <state x="287" y="27" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1593624945156" />
     <state x="512" y="196" key="FileChooserDialogImpl" timestamp="1593624799037">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
@@ -95,5 +109,9 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="415" y="254" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1593624898209" />
+    <state x="102" y="51" key="new project wizard" timestamp="1593625732632">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="102" y="51" key="new project wizard/0.0.1440.860@0.0.1440.860" timestamp="1593625732632" />
   </component>
 </project>
