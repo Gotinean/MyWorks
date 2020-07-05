@@ -5,57 +5,64 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class CSVParsing {
-    private static String bankStatement = "data/movementList.csv";
-    public static List<Expenses> expenses = new ArrayList<>();
-
+    private static List<Expenses> expenses = new ArrayList<>();
+    private static List<Integer> income = new ArrayList<>();
     public static void main(String[] args) {
+        String bankStatement = "data/movementList.csv";
         File file = new File(bankStatement);
         try {
             List<String> lines = Files.readAllLines(Paths.get(bankStatement));
-            for (String line : lines) {
-                String[] fragments = line.split(",", 8);
-                if (!fragments[6].matches("\\d+")) {
-                    continue;
-                }
-                String[] name = fragments[5].split("\\s+");
+            lines.stream().map(line
+                    -> line.split(",", 8)).filter(fragments
+                    -> fragments[6].matches("\\d+")).forEach(fragments
+                    -> { String[] name = fragments[5].split("\\s{3,}");
                 fragments[7] = fragments[7].replaceAll("\"", "");
                 fragments[7] = fragments[7].replaceAll(",", "\\.");
-                expenses.add(new Expenses(name[1], Double.parseDouble(fragments[6]), Double.parseDouble(fragments[7])));
-            }
+                expenses.add(new Expenses(name[1], Double.parseDouble(fragments[7])));
+                income.add(Integer.parseInt(fragments[6]));
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println("Общие расходы равны:  " + sumExpenses(expenses));
-        System.out.println("Общие доходы равны: " + sumIncome(expenses));
+        System.out.println("Общие доходы равны: " + sumIncome(income));
         checkList(expenses);
-        checkList(expenses);
+        System.out.println("Суммарный расход по каждой из компаний");
         for (Expenses expense : expenses) {
             System.out.println(expense.toString());
         }
+        System.out.println(sumExpenses(expenses));
 
 
     }
 
     public static void checkList(List<Expenses> list) {
-        for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < list.size(); j++) {
-                if (list.get(i).name.equals(list.get(j).name)) {
-                    double sumIncome = list.get(i).incomeValue + list.get(j).incomeValue;
-                    double sumExpenses = list.get(i).expensesValue + list.get(j).expensesValue;
-                    list.get(i).incomeValue = sumIncome;
-                    list.get(i).expensesValue = sumExpenses;
-                    list.remove(j);
-                }
+        expenses.sort(new Comparator<Expenses>() {
+            @Override
+            public int compare(Expenses expenses, Expenses t1) {
+                return Integer.compare(expenses.name.length(), t1.name.length());
             }
-        }
+        });
+            for(int i = 0; i < expenses.size(); i++){
+                for(int j = 0; j < expenses.size(); j++){
+                    if(i != j && expenses.get(i).equals(expenses.get(j))){
+                        expenses.get(i).expensesValue += expenses.get(j).expensesValue;
+                        expenses.remove(j);
+                        j--;
+                    }
+                }
+
+            }
+
     }
 
-    public static double sumIncome(List<Expenses> list) {
+
+    public static double sumIncome(List<Integer> list) {
 
         double sumIncome = 0;
 
         for (int j = 1; j < list.size(); j++) {
-            sumIncome += list.get(j).incomeValue;
+            sumIncome += income.get(j);
         }
 
         return sumIncome;
