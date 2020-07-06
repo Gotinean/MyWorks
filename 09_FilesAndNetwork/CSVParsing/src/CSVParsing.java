@@ -29,8 +29,8 @@ public class CSVParsing {
             e.printStackTrace();
         }
         System.out.println("Общие расходы равны:  " + sumExpenses(expenses));
-        System.out.println("Общие доходы равны: " + sumIncome(income));
         System.out.println(expenses.stream().mapToDouble(e-> e.expensesValue).sum());
+        System.out.println("Общие доходы равны: " + sumIncome(income));
         checkList(expenses);
         System.out.println("Суммарный расход по каждой из компаний");
         for (Expenses expense : expenses) {
@@ -63,13 +63,10 @@ public class CSVParsing {
 
 
     public static double sumIncome(List<Integer> list) {
-
         double sumIncome = 0;
-
-        for (int j = 1; j < list.size(); j++) {
+        for (int j = 0; j < list.size(); j++) {
             sumIncome += income.get(j);
         }
-
         return sumIncome;
     }
 
