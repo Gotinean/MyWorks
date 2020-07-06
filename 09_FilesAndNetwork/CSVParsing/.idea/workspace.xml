@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0592e788-2464-4a57-95e0-02f36c015e1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSVParsing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVParsing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594047654379</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="CSVParsing">
+      <created>1594047771327</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1594047771327</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -123,26 +129,26 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="450" y="177" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1440.860@0.0.1440.860" timestamp="1593947179011" />
-    <state x="339" y="25" key="CommitChangelistDialog2" timestamp="1594047653492">
+    <state x="339" y="25" key="CommitChangelistDialog2" timestamp="1594047770828">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="339" y="25" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1594047653492" />
-    <state width="1397" height="221" key="GridCell.Tab.0.bottom" timestamp="1594047743285">
+    <state x="339" y="25" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1594047770828" />
+    <state width="1397" height="221" key="GridCell.Tab.0.bottom" timestamp="1594050471891">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="221" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1594047743285" />
-    <state width="1397" height="221" key="GridCell.Tab.0.center" timestamp="1594047743285">
+    <state width="1397" height="221" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1594050471891" />
+    <state width="1397" height="221" key="GridCell.Tab.0.center" timestamp="1594050471890">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="221" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1594047743285" />
-    <state width="1397" height="221" key="GridCell.Tab.0.left" timestamp="1594047743285">
+    <state width="1397" height="221" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1594050471890" />
+    <state width="1397" height="221" key="GridCell.Tab.0.left" timestamp="1594050471890">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="221" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1594047743285" />
-    <state width="1397" height="221" key="GridCell.Tab.0.right" timestamp="1594047743285">
+    <state width="1397" height="221" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1594050471890" />
+    <state width="1397" height="221" key="GridCell.Tab.0.right" timestamp="1594050471891">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="221" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1594047743285" />
+    <state width="1397" height="221" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1594050471891" />
     <state width="1397" height="276" key="GridCell.Tab.1.bottom" timestamp="1593972469179">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
