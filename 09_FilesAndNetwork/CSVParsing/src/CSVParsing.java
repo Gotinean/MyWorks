@@ -16,8 +16,12 @@ public class CSVParsing {
                     -> line.split(",", 8)).filter(fragments
                     -> fragments[6].matches("\\d+")).forEach(fragments
                     -> { String[] name = fragments[5].split("\\s{3,}");
+                    name[1] = name[1].replaceAll("\\d", "");
+                name[1] = name[1].replaceAll("[\\W]", " ");
+                name[1] = name[1].replaceAll("\\s{2,}", " ");
                 fragments[7] = fragments[7].replaceAll("\"", "");
                 fragments[7] = fragments[7].replaceAll(",", "\\.");
+
                 expenses.add(new Expenses(name[1], Double.parseDouble(fragments[7])));
                 income.add(Integer.parseInt(fragments[6]));
             });
@@ -26,28 +30,29 @@ public class CSVParsing {
         }
         System.out.println("Общие расходы равны:  " + sumExpenses(expenses));
         System.out.println("Общие доходы равны: " + sumIncome(income));
+        System.out.println(expenses.stream().mapToDouble(e-> e.expensesValue).sum());
         checkList(expenses);
         System.out.println("Суммарный расход по каждой из компаний");
         for (Expenses expense : expenses) {
             System.out.println(expense.toString());
         }
-        System.out.println(sumExpenses(expenses));
+
 
 
     }
 
     public static void checkList(List<Expenses> list) {
-        expenses.sort(new Comparator<Expenses>() {
+        list.sort(new Comparator<Expenses>() {
             @Override
             public int compare(Expenses expenses, Expenses t1) {
                 return Integer.compare(expenses.name.length(), t1.name.length());
             }
         });
-            for(int i = 0; i < expenses.size(); i++){
-                for(int j = 0; j < expenses.size(); j++){
-                    if(i != j && expenses.get(i).equals(expenses.get(j))){
-                        expenses.get(i).expensesValue += expenses.get(j).expensesValue;
-                        expenses.remove(j);
+            for(int i = 0; i < list.size(); i++){
+                for(int j = 0; j < list.size(); j++){
+                    if(i != j && list.get(i).equals(list.get(j))){
+                        list.get(i).expensesValue += list.get(j).expensesValue;
+                        list.remove(j);
                         j--;
                     }
                 }
@@ -69,8 +74,8 @@ public class CSVParsing {
     }
 
     public static double sumExpenses(List<Expenses> list) {
-        double sumExpenses = 0;
-        for (int j = 1; j < list.size(); j++) {
+        double sumExpenses = list.get(0).expensesValue;
+        for (int j = 0; j < list.size(); j++) {
             sumExpenses += list.get(j).expensesValue;
         }
         return sumExpenses;
