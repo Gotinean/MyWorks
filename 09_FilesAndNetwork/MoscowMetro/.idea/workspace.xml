@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83db4eac-6988-47b8-ba6b-30265cf80105" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MoscowMetro.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Lines.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MoscowMetro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../08_ExceptionsDebuggingAndTesting/SPBMetro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../08_ExceptionsDebuggingAndTesting/SPBMetro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HTMLParsing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HTMLParsing/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Lines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Station.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MoscowMetro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MoscowMetro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,13 +23,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1eXVtr7CYlgnFZzmjoFvgSbWqSK" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -78,44 +75,77 @@
       <option name="presentableId" value="Default" />
       <updated>1594468141399</updated>
     </task>
+    <task id="LOCAL-00001" summary="MoscowMetro">
+      <created>1594570527987</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594570527988</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="MoscowMetro" />
+    <option name="LAST_COMMIT_MESSAGE" value="MoscowMetro" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="312" y="89" key="#Project_Structure" timestamp="1594484669986">
+    <state x="312" y="89" key="#Project_Structure" timestamp="1594751113273">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="89" key="#Project_Structure/0.0.1440.860@0.0.1440.860" timestamp="1594484669986" />
-    <state x="525" y="140" key="#com.intellij.ide.util.MemberChooser" timestamp="1594556759954">
+    <state x="312" y="89" key="#Project_Structure/0.0.1440.860@0.0.1440.860" timestamp="1594751113273" />
+    <state x="525" y="140" key="#com.intellij.ide.util.MemberChooser" timestamp="1595078403736">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="525" y="140" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860@0.0.1440.860" timestamp="1594556759954" />
-    <state width="1397" height="218" key="GridCell.Tab.0.bottom" timestamp="1594570491783">
+    <state x="525" y="140" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860@0.0.1440.860" timestamp="1595078403736" />
+    <state x="322" y="25" key="CommitChangelistDialog2" timestamp="1594570527120">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="218" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1594570491783" />
-    <state width="1397" height="218" key="GridCell.Tab.0.center" timestamp="1594570491783">
+    <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1594570527120" />
+    <state width="1397" height="259" key="GridCell.Tab.0.bottom" timestamp="1595079773464">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="218" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1594570491783" />
-    <state width="1397" height="218" key="GridCell.Tab.0.left" timestamp="1594570491783">
+    <state width="1397" height="259" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1595079773464" />
+    <state width="1397" height="259" key="GridCell.Tab.0.center" timestamp="1595079773464">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="218" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1594570491783" />
-    <state width="1397" height="218" key="GridCell.Tab.0.right" timestamp="1594570491783">
+    <state width="1397" height="259" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1595079773464" />
+    <state width="1397" height="259" key="GridCell.Tab.0.left" timestamp="1595079773464">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="218" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1594570491783" />
+    <state width="1397" height="259" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1595079773464" />
+    <state width="1397" height="259" key="GridCell.Tab.0.right" timestamp="1595079773464">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="259" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1595079773464" />
+    <state width="1397" height="276" key="GridCell.Tab.1.bottom" timestamp="1595079195597">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.1.bottom/0.0.1440.860@0.0.1440.860" timestamp="1595079195597" />
+    <state width="1397" height="276" key="GridCell.Tab.1.center" timestamp="1595079195596">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.1.center/0.0.1440.860@0.0.1440.860" timestamp="1595079195596" />
+    <state width="1397" height="276" key="GridCell.Tab.1.left" timestamp="1595079195596">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.1.left/0.0.1440.860@0.0.1440.860" timestamp="1595079195596" />
+    <state width="1397" height="276" key="GridCell.Tab.1.right" timestamp="1595079195596">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.1.right/0.0.1440.860@0.0.1440.860" timestamp="1595079195596" />
     <state x="702" y="10" width="735" height="850" key="SettingsEditor" timestamp="1594471082771">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="702" y="10" width="735" height="850" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1594471082771" />
-    <state x="415" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1594555555888">
+    <state x="415" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1595077690997">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="415" y="254" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1594555555888" />
-    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1594556615056">
+    <state x="415" y="254" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1595077690997" />
+    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1594840871738">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1594556615056" />
+    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1594840871738" />
   </component>
 </project>
