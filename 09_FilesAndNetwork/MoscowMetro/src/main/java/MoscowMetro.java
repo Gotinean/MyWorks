@@ -3,6 +3,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,16 +12,21 @@ import java.util.List;
 public class MoscowMetro {
     private static final String url = "https://www.moscowmap.ru/metro.html#lines";
     private static List<Line> lines = new ArrayList<>(); //Лист объектов, который заполняем по итогу (number - название Линии, stations - станции, которые к ней относятся
+    private static List<NumberAndNameOfLine> numberAndNameOfLines = new ArrayList<>();
+
     public static void main(String[] args) throws IOException {
 
         Document document = Jsoup.connect(url).maxBodySize(0).get();
         Elements element = document.getElementsByAttribute("id");
         Elements elements = document.select("div[id = metrodata]");
-        parseLine(element);
-        System.out.println(Arrays.toString(lines.toArray()));
+        List<Line> lines = parseLine(element);
+        List<NumberAndNameOfLine> numberAndNameOfLines = getLines(element);
+        System.out.println(numberAndNameOfLines.get(5));
+
 
     }
-    private static void parseLine(Elements element){
+
+    private static List<Line> parseLine(Elements element) {
         List<String> stations = new ArrayList<>(); //Создаем лист для списка станций и линий.
         List<String> namesOfLines = new ArrayList<>(); //создаем лист только для линий.
         List<String> groupOfStations = new ArrayList<>(); // Создаю лист для групп станций, каждый элемент имеет свою группу станций,
@@ -32,36 +38,40 @@ public class MoscowMetro {
                 namesOfLines.add(String.valueOf(element1.text()));
             }
         }//В цикле закидываю элементы в листы через регулярки, чтоб в одном были чисто имена линий, в другом, линии и станции(дальше поймешь, зачем линии)
-        String allStations = null;
-        for (int i = 0; i < stations.size(); i++) {
-            allStations += String.valueOf(stations.get(i) + ", ");//преобразую лист в простой стринг, чтоб можно было его разделить так как мне надо.
-        }
-        String[] a = allStations.split("МЦД-\\d, "); //разделяю строку по МЦД-1/2 чтоб эта запись исчезла и у меня был элемент массива,
+        String allStations = String.join(",", stations);
+        String[] a = allStations.split("МЦД-\\d,"); //разделяю строку по МЦД-1/2 чтоб эта запись исчезла и у меня был элемент массива,
         // в котором содержатся станции определенной линии
-        String[] b = a[0].split("[А-Яа-я\\s-]+линия, "); //То же самое, только разделение по какая-то линия.
+        String[] b = a[0].split("[А-Яа-я\\s-]+линия,"); //То же самое, только разделение по какая-то линия.
         for (int i = 1; i < b.length; i++) {
             groupOfStations.add(b[i]);
         } //Закидываю все элементы массива в список
         for (int i = 1; i < a.length; i++) {
             groupOfStations.add(a[i]);
         }
-        for(int i = 0; i < namesOfLines.size(); i++){
+        for (int i = 0; i < namesOfLines.size(); i++) {
             Line line = new Line(namesOfLines.get(i));
-            line.addStation(groupOfStations.get(i));
+            for (String station : groupOfStations.get(i).split(",")) {
+                line.addStation(station);
+            }
             lines.add(line);
         }
+        return lines;
     }
 
+    private static List<NumberAndNameOfLine> getLines(Elements element) {
+        List<String> names = new ArrayList<>();
+        for (Element element1 : element.select("span")) {
+            if ((element1.text().matches("[А-Яа-я\\s-]+линия")) | (element1.text().matches("МЦД-\\d"))) {
+                names.add(String.valueOf(element1.text()));
+            }
+        }
+        for(int i = 0; i < names.size(); i++){
+            NumberAndNameOfLine numberAndNameOfLine = new NumberAndNameOfLine(i+1, names.get(i));
+            numberAndNameOfLines.add(numberAndNameOfLine);
+        }
+        return numberAndNameOfLines;
+    }
 }
-
-
-
-
-
-
-
-
-
 
 
 //         {
