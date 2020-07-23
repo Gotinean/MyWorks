@@ -13,6 +13,7 @@ public class MoscowMetro {
     private static final String url = "https://www.moscowmap.ru/metro.html#lines";
     private static List<Line> lines = new ArrayList<>(); //Лист объектов, который заполняем по итогу (number - название Линии, stations - станции, которые к ней относятся
     private static List<NumberAndNameOfLine> numberAndNameOfLines = new ArrayList<>();
+    private static List<Connections> connection = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
 
@@ -20,8 +21,11 @@ public class MoscowMetro {
         Elements element = document.getElementsByAttribute("id");
         Elements elements = document.select("div[id = metrodata]");
         List<Line> lines = parseLine(element);
+        System.out.println(lines.get(14));
         List<NumberAndNameOfLine> numberAndNameOfLines = getLines(element);
-        System.out.println(numberAndNameOfLines.get(5));
+        System.out.println(numberAndNameOfLines.get(14));
+        List<Connections> connection = getConnections(elements);
+        System.out.println(connection.get(1));
 
 
     }
@@ -35,7 +39,8 @@ public class MoscowMetro {
             if (!element1.text().matches("\\d+.") && (!element1.text().matches("")))
                 stations.add(String.valueOf(element1.text()));
             if ((element1.text().matches("[А-Яа-я\\s-]+линия")) | (element1.text().matches("МЦД-\\d"))) {
-                namesOfLines.add(String.valueOf(element1.text()));
+                String linkHref = element1.attr("data-line");
+                namesOfLines.add(linkHref);
             }
         }//В цикле закидываю элементы в листы через регулярки, чтоб в одном были чисто имена линий, в другом, линии и станции(дальше поймешь, зачем линии)
         String allStations = String.join(",", stations);
@@ -60,19 +65,50 @@ public class MoscowMetro {
 
     private static List<NumberAndNameOfLine> getLines(Elements element) {
         List<String> names = new ArrayList<>();
+        List<String> numbers = new ArrayList<>();
         for (Element element1 : element.select("span")) {
+
             if ((element1.text().matches("[А-Яа-я\\s-]+линия")) | (element1.text().matches("МЦД-\\d"))) {
                 names.add(String.valueOf(element1.text()));
+                String linkHref = element1.attr("data-line");
+                numbers.add(linkHref);
             }
+
         }
-        for(int i = 0; i < names.size(); i++){
-            NumberAndNameOfLine numberAndNameOfLine = new NumberAndNameOfLine(i+1, names.get(i));
+
+        for (int i = 0; i < names.size(); i++) {
+            NumberAndNameOfLine numberAndNameOfLine = new NumberAndNameOfLine(numbers.get(i), names.get(i));
             numberAndNameOfLines.add(numberAndNameOfLine);
         }
         return numberAndNameOfLines;
     }
+
+    private static List<Connections> getConnections(Elements elements) {
+        List<String> lines = new ArrayList<>();
+        List<String> stations = new ArrayList<>();
+        for (Element elements1 : elements.select("span")) {
+            if (!(elements1.attr("class") == null)) {
+                Connections connections = new Connections();
+                String linkHref = elements1.attr("data-line");
+                String station = null;
+                if (!elements1.text().matches("\\d+.") && (!elements1.text().matches(""))) {
+                    station = (String.valueOf(elements1.text()));
+                }
+                connections.addLineAndStation(linkHref, station);
+                String connect = elements1.attr("class");
+                connections.addLineAndStation(connect, station);
+                connection.add(connections);
+            }
+
+        }
+        return connection;
+    }
 }
 
+//    String a = String.valueOf(elements.select("span[title]"));
+//            a = a.replaceAll("[^А-Яа-я\\s+]", "");
+//                    String[] b = a.split("\\n");
+//                    lines.addAll(Arrays.asList(b));
 
 //         {
 //            if (!element1.text().matches("\\d+.") && (!element1.text().matches("")))
@@ -108,11 +144,5 @@ public class MoscowMetro {
 //            stations.add(station1);
 //        }
 //    }
-//    private static void setConnections (List<String> list , Elements elements){
-//        for(Element elements1: elements){
-//            String a = String.valueOf(elements.select("span[title]"));
-//            a = a.replaceAll("[^А-Яа-я\\s+]", "");
-//            String[] b = a.split("\\n");
-//            list.addAll(Arrays.asList(b));
-//        }
+//
 

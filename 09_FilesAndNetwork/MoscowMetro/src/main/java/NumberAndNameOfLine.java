@@ -1,12 +1,12 @@
 public class NumberAndNameOfLine {
-    private int number;
+    private String number;
     private String name;
 
-    public NumberAndNameOfLine(int number,String name) {
+    public NumberAndNameOfLine(String number,String name) {
         this.number = number;
         this.name = name;
     }
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -16,8 +16,8 @@ public class NumberAndNameOfLine {
 
     @Override
     public String toString() {
-        return  "number=" + number +
-                ", name='" + name + '\'' +
+        return  "number = " + number +
+                ", name = '" + name + '\'' +
                 '}';
     }
 }
