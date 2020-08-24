@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83db4eac-6988-47b8-ba6b-30265cf80105" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Connections.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Metro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Station.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoscowMetro.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/1.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Connections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Connections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Line.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MoscowMetro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MoscowMetro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NumberAndNameOfLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NumberAndNameOfLine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,10 +161,11 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="702" y="10" width="735" height="850" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1594471082771" />
-    <state x="415" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1598183484728">
-      <screen x="0" y="0" width="1440" height="860" />
+    <state x="1855" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1598287722849">
+      <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="415" y="254" key="com.intellij.ide.util.TipDialog/0.0.1440.860/1440.0.1440.860@0.0.1440.860" timestamp="1598183484728" />
+    <state x="1855" y="254" key="com.intellij.ide.util.TipDialog/0.0.1440.860/1440.0.1440.860@1440.0.1440.860" timestamp="1598287722849" />
     <state x="415" y="254" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1595149675989" />
     <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1595357281463">
       <screen x="0" y="0" width="1440" height="860" />

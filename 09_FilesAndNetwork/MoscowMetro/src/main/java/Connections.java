@@ -4,13 +4,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Connections {
-    private TreeMap lineAndStation = new TreeMap();
-
-    public void addLineAndStation(String lineNumber, String stationName){
-        lineAndStation.put(lineNumber,stationName);
-
-    }
-
+    private Map<String, List<String>> lineAndStation;
 
     @Override
     public String toString() {
