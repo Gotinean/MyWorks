@@ -26,7 +26,6 @@ public class MoscowMetro {
         Elements elements = document.select("div[id = metrodata]");
         metro.setLines(parseLine(element));
         metro.setStations(mapSt);
-
         metro.setConnections(getConnections(elements));
         ObjectMapper objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
         Path path = Paths.get("data/1.json");
@@ -62,7 +61,9 @@ public class MoscowMetro {
         } //Закидываю все элементы массива в список
         for (int i = 1; i < a.length; i++) {
             groupOfStations.add(a[i]);
+
         }
+
         for (int i = 0; i < numOfLines.size(); i++) {
             Line line = new Line(numOfLines.get(i), namesOfLines.get(i));
             for (String station : groupOfStations.get(i).split(",")) {
@@ -71,6 +72,10 @@ public class MoscowMetro {
 
             }
             lines.add(line);
+        }
+        for(int i = 0; i < groupOfStations.size(); i++){
+            String[] z = groupOfStations.get(i).split(",");
+            System.out.println("На " + namesOfLines.get(i) + " " + z.length + "станций");
         }
         return lines;
     }
@@ -101,6 +106,7 @@ public class MoscowMetro {
                     }
                     stNameWithConnection.add(temp);
                 }
+
 
 
             });
