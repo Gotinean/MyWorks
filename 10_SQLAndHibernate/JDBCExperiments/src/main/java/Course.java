@@ -6,8 +6,8 @@ import java.util.List;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int id;
-    private  String name;
+    private int id;
+    private String name;
     private int duration;
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "enum")
@@ -16,16 +16,16 @@ public class Course {
     @ManyToOne(cascade = CascadeType.ALL)
     private Teacher teacher;
     @Column(name = "students_count")
-    private int studentsCount;
+    private int studentCount;
     private int price;
+
     @Column(name = "price_per_hour")
     private float pricePerHour;
-
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "Subscriptions",
     joinColumns = {@JoinColumn(name = "course_id")},
-    inverseJoinColumns = @JoinColumn(name = "student_id"))
-    private List<Student> students;
+    inverseJoinColumns = {@JoinColumn(name = "student_id")})
+    private List<Student> studets;
 
     public int getId() {
         return id;
@@ -67,20 +67,20 @@ public class Course {
         this.description = description;
     }
 
-    public Teacher getTeacherId() {
+    public Teacher getTeacher() {
         return teacher;
     }
 
-    public void setTeacherId(Teacher teacherId) {
-        this.teacher = teacherId;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
-    public int getStudentsCount() {
-        return studentsCount;
+    public int getStudentCount() {
+        return studentCount;
     }
 
-    public void setStudentsCount(int studentsCount) {
-        this.studentsCount = studentsCount;
+    public void setStudentCount(int studentCount) {
+        this.studentCount = studentCount;
     }
 
     public int getPrice() {
@@ -99,12 +99,12 @@ public class Course {
         this.pricePerHour = pricePerHour;
     }
 
-    public List<Student> getStudents() {
-        return students;
+
+    public List<Student> getStudets() {
+        return studets;
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void setStudets(List<Student> studets) {
+        this.studets = studets;
     }
-
 }
