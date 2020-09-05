@@ -1,11 +1,13 @@
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import java.sql.*;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
@@ -15,9 +17,11 @@ public class Main {
        SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
 
        Session session = sessionFactory.openSession();
-
-       Course course = session.get(Course.class, 1);
-        System.out.println("Курсу " + course.getName() + " обучается " + course.getStudentsCount() + "студентов");
+        Transaction transaction = session.beginTransaction();
+        Course course = session.get(Course.class,1);
+        List<Student> studentsList = course.getStudents();
+        studentsList.forEach(System.out::println);
+       transaction.commit();
        sessionFactory.close();
     }
 }
