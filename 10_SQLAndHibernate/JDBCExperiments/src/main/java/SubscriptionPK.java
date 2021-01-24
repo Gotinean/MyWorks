@@ -1,6 +1,5 @@
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -16,6 +15,13 @@ public class SubscriptionPK implements Serializable {
         this.courseId = courseId;
         this.studentId = studentId;
     }
+    @JoinColumn(name = "course_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Course course;
+
+    @JoinColumn(name = "student_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Student student;
 
     @Override
     public boolean equals(Object o) {

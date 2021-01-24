@@ -1,14 +1,15 @@
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class PurchaseList {
-    @Column (name = "student_name")
-    private int studentName;
-    @Column (name = "course_name")
-    private int courseName;
+    @EmbeddedId
+    private PurchaseListPK purchaseListPK;
+    @JoinColumn(name = "price", insertable = true, updatable = true)
+    @OneToOne(optional = false, fetch = FetchType.EAGER)
     private int price;
     @Column (name = "subscription_date")
+    @JoinColumn(name = "subscription_date", insertable = true, updatable = true)
+    @OneToOne(optional = false, fetch = FetchType.EAGER)
     private Date subscriptionDate;
 }
