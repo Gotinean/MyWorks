@@ -21,8 +21,7 @@ public class Main{
         Transaction transaction = session.beginTransaction();
 
         Course course = session.get(Course.class, 1);
-        List<Student> studentList = course.getStudets();
-        for(Student student: studentList) System.out.println(student.getName());
+
 
 
         transaction.commit();

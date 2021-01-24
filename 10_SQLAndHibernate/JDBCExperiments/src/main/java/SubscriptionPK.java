@@ -1,32 +1,26 @@
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
-
 @Embeddable
+@Data
+@AllArgsConstructor
 public class SubscriptionPK implements Serializable {
     @Column(name = "course_id")
     protected Integer courseId;
     @Column(name = "student_id")
     protected Integer studentId;
+    @JoinColumn(name = "course_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Course course;
 
-    public SubscriptionPK(){}
-    public SubscriptionPK(Integer courseId, Integer studentId){
-        this.courseId = courseId;
-        this.studentId = studentId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof SubscriptionPK)) return false;
-        SubscriptionPK that = (SubscriptionPK) o;
-        return Objects.equals(courseId, that.courseId) && Objects.equals(studentId, that.studentId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(courseId, studentId);
-    }
+    @JoinColumn(name = "student_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Student student;
 }
+
+

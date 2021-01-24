@@ -1,14 +1,19 @@
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Data
+@AllArgsConstructor
 public class PurchaseList {
-    @Column (name = "student_name")
-    private int studentName;
-    @Column (name = "course_name")
-    private int courseName;
+    @EmbeddedId
+    private PurchaseListPK purchaseListPK;
     private int price;
     @Column (name = "subscription_date")
     private Date subscriptionDate;
+
 }
