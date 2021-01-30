@@ -1,6 +1,7 @@
+package model;
+
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import model.CourseType;
 
 import javax.persistence.*;
 import java.util.List;
@@ -26,15 +27,15 @@ public class Course {
     private int price;
     @Column(name = "price_per_hour")
     private float pricePerHour;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "Subscriptions",
     joinColumns = {@JoinColumn(name = "course_id")},
     inverseJoinColumns = {@JoinColumn(name = "student_id")})
     private List<Student> students;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinTable(name = "PurchaseList",
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "Subscriptions",
     joinColumns = {@JoinColumn(name = "course_id")})
-    private List<PurchaseList> purchaseLists;
+    private List<Subscription> subscriptions;
 
 
 

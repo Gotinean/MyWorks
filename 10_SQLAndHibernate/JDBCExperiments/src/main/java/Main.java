@@ -1,30 +1,30 @@
+import dao.CourseDAO;
+import dao.DAO;
+import model.Course;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.List;
+import org.hibernate.cfg.Configuration;
 
 public class Main{
+
     public static void main(String[] args) {
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
-        Metadata metadata = new MetadataSources(registry).getMetadataBuilder().build();
-        SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
+    SessionFactory factory = null;
+    try {
+        factory = new Configuration().configure().buildSessionFactory();
+        DAO<Course, Integer> CourseDAO = new CourseDAO(factory);
+        final Course result = CourseDAO.read(1);
+        System.out.println("Result : " + result);
+        System.out.println();
 
-        Course course = session.get(Course.class, 1);
+    }
+    finally {
+        if(factory != null){
+            factory.close();
+        }
+    }
 
 
 
-        transaction.commit();
-        sessionFactory.close();
+
     }
 }
