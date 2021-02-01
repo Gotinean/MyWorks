@@ -15,8 +15,8 @@ import java.util.Objects;
 @EqualsAndHashCode
 public class PurchaseListPK implements Serializable {
     @Column(name = "student_name")
-    private Integer studentName;
+    private String studentName;
     @Column (name = "course_name")
-    private Integer courseName;
+    private String courseName;
 
 }

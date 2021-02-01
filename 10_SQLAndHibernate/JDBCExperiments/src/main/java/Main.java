@@ -1,7 +1,7 @@
+import com.fasterxml.classmate.AnnotationConfiguration;
 import dao.CourseDAO;
 import dao.DAO;
 import model.Course;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
