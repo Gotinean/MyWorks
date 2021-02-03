@@ -13,7 +13,7 @@ public class Main{
         factory = new Configuration().configure().buildSessionFactory();
         DAO<Course, Integer> CourseDAO = new CourseDAO(factory);
         final Course result = CourseDAO.read(1);
-        System.out.println("Result : " + result);
+        System.out.println("Result : " + result.getSubscriptions().get(0).getSubscriptionPK().getStudent().getName());
         System.out.println();
 
     }

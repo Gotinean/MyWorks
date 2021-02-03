@@ -33,8 +33,7 @@ public class Course {
     inverseJoinColumns = {@JoinColumn(name = "student_id")})
     private List<Student> students;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "Subscriptions",
-    joinColumns = {@JoinColumn(name = "course_id")})
+    @JoinColumn(name = "course_id")
     private List<Subscription> subscriptions;
 
 
