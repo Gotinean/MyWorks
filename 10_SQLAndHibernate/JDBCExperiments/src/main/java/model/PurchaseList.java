@@ -1,9 +1,6 @@
 package model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,10 +8,11 @@ import java.util.Date;
 @Entity
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class PurchaseList {
     @EmbeddedId
     private PurchaseListPK purchaseListPK;
-    private int price;
+    private Integer price;
     @Column (name = "subscription_date")
     private Date subscriptionDate;
 

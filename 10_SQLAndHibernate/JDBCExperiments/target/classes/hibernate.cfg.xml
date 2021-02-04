@@ -14,8 +14,9 @@
         <!-- Set the current session context -->
         <property name="current_session_context_class">thread</property>
         <!--Drop and re-create the database schema on startup-->
-        <property name="hbm2ddl.auto">validate</property>
+        <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.implicit_naming_strategy">legacy-jpa</property>
+
 
         <mapping class="model.Course"/>
         <mapping class="model.Teacher"/>
