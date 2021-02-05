@@ -2,9 +2,7 @@ import com.fasterxml.classmate.AnnotationConfiguration;
 import dao.CourseDAO;
 import dao.DAO;
 import dao.TeacherDAO;
-import model.Course;
-import model.Student;
-import model.Teacher;
+import model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -13,6 +11,10 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class Main{
@@ -24,16 +26,21 @@ public class Main{
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
         Session session = sessionFactory.openSession();
 
-        String hql = "From " + Course.class.getSimpleName() + " Where price > 120000";
-        List<Course> courseList = session.createQuery(hql).getResultList();
-        for (Course course : courseList){
-            System.out.println(course.getName() + " - " + course.getPrice());
-        }
-        String hqlStudents = "From " + Student.class.getSimpleName() + " Where id < 5";
-        List<Student> list = session.createQuery(hqlStudents).getResultList();
-        for (Student student : list){
-            System.out.println(student.getName() + " " + student.getId());
-        }
+//        String hql = "From " + Course.class.getSimpleName();
+//        List<Course> courseList = session.createQuery(hql).getResultList();
+//        String hql1 = "From " + Student.class.getSimpleName();
+//        List<Student> studentList = session.createQuery(hql1).getResultList();
+//        String hql2 = "From " + Subscription.class.getSimpleName();
+//        List<Subscription> subscriptionList = session.createQuery(hql2).getResultList();
+        String hql = "insert into LinkedPurchaseList (coursePrice, courseName) " +
+                "select 'price', 'name' from Course";
+        int rows = session.createQuery(hql).executeUpdate();
+//        String hqlStudents = "From " + Student.class.getSimpleName() + " Where id < 5";
+//        List<Student> list = session.createQuery(hqlStudents).getResultList();
+//        for (Student student : list){
+//            System.out.println(student.getName() + " " + student.getId());
+//        }
+        session.close();
 
 
 //    try {
