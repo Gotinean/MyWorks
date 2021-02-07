@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 
 class OsValidator {
 
-    private static String OS = System.getProperty("os.name").toLowerCase();
+    private static String OS =  System.getProperty("os.name").toLowerCase();
 
     public static void main(String[] args) {
 
