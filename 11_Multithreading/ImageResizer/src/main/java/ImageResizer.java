@@ -7,7 +7,6 @@ import java.awt.image.ImagingOpException;
 import java.io.File;
 
 public class ImageResizer implements Runnable {
-    private static final boolean DEBUG = true;
     private File[] files;
     private int newWidth;
     private String dstFolder;
