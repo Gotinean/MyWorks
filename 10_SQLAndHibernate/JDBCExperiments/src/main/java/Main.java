@@ -39,9 +39,24 @@ public class Main{
 
         for(Subscription subscription : subscriptionList) {
             l = new LinkedPurchaseListPK(subscription.getSubscriptionPK().getStudent().getId(), subscription.getSubscriptionPK().getCourse().getId());
-            linkedPurchaseList = new LinkedPurchaseList(l,null,null,null,null);
+            linkedPurchaseList = new LinkedPurchaseList(l,null,null,subscription.getSubscriptionDate(),null);
             session.save(linkedPurchaseList);
         }
+        for(Course course : courseList){
+            if(course.getId() == linkedPurchaseList.getLinkedPurchaseListPK().getCourseId()){
+                linkedPurchaseList.setCourseName(course.getName());
+                linkedPurchaseList.setCoursePrice(course.getPrice());
+                session.saveOrUpdate(linkedPurchaseList);
+            }
+        }
+        for(Student student : studentList){
+            if(student.getId() == linkedPurchaseList.getLinkedPurchaseListPK().getStudentId()){
+                linkedPurchaseList.setStudentName(student.getName());
+                session.saveOrUpdate(linkedPurchaseList);
+            }
+        }
+
+
 //        LinkedPurchaseList l = new LinkedPurchaseList(linkedPurchaseListPK, "Фуриков Эрнст", "Веб-разработчик с 0 до PRO", null, 189600);
         session.getTransaction().commit();
 
