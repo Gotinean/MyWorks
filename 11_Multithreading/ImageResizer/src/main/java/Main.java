@@ -24,7 +24,7 @@ public class Main
         numberOfCPUCores = getNumberOfCPUCores();
         assert files != null;
 
-        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        ExecutorService executorService = Executors.newFixedThreadPool(numberOfCPUCores);
         executorService.submit(new ImageResizer(files,newWidth,dstFolder,start));
         executorService.shutdown();
         System.out.println("Duration: " + (System.currentTimeMillis() - start));

@@ -59,9 +59,4 @@ public class ImageResizer implements Runnable {
             ex.printStackTrace();
         }
     }
-//    public static BufferedImage crop(BufferedImage src, int x, int y, int width, int height,
-//                                     BufferedImageOp... ops) throws IllegalArgumentException,
-//            ImagingOpException {
-//
-//    }
 }
