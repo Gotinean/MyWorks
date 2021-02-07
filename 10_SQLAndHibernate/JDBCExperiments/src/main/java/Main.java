@@ -34,28 +34,30 @@ public class Main{
         String hql2 = "From " + Subscription.class.getSimpleName();
         List<Subscription> subscriptionList = session.createQuery(hql2).getResultList();
         String hql3 = "From " + LinkedPurchaseList.class.getSimpleName();
-        List<LinkedPurchaseList> list = session.createQuery(hql3).getResultList();
+        LinkedPurchaseList linkedPurchaseList = new LinkedPurchaseList();
+        LinkedPurchaseListPK linkedPurchaseListPK = new LinkedPurchaseListPK();
         session.beginTransaction();
 
-//        for(Subscription subscription : subscriptionList) {
-//            l = new LinkedPurchaseListPK(subscription.getSubscriptionPK().getStudent().getId(), subscription.getSubscriptionPK().getCourse().getId());
-//            linkedPurchaseList = new LinkedPurchaseList(l,null,null,subscription.getSubscriptionDate(),null);
-//            session.save(linkedPurchaseList);
-//        }
+        for(Subscription subscription : subscriptionList) {
+            linkedPurchaseListPK = new LinkedPurchaseListPK(subscription.getSubscriptionPK().getStudent().getId(), subscription.getSubscriptionPK().getCourse().getId());
+            linkedPurchaseList = new LinkedPurchaseList(linkedPurchaseListPK,null,null,subscription.getSubscriptionDate(),null);
+            session.saveOrUpdate(linkedPurchaseList);
+        }
+        List<LinkedPurchaseList> list = session.createQuery(hql3).getResultList();
         for(Course course : courseList){
-            for(LinkedPurchaseList linkedPurchaseList : list) {
-                if (course.getId() == linkedPurchaseList.getLinkedPurchaseListPK().getCourseId()) {
-                    linkedPurchaseList.setCourseName(course.getName());
-                    linkedPurchaseList.setCoursePrice(course.getPrice());
-                    session.saveOrUpdate(linkedPurchaseList);
+            for(LinkedPurchaseList linkedList : list) {
+                if (course.getId() == linkedList.getLinkedPurchaseListPK().getCourseId()) {
+                    linkedList.setCourseName(course.getName());
+                    linkedList.setCoursePrice(course.getPrice());
+                    session.saveOrUpdate(linkedList);
                 }
             }
         }
         for(Student student : studentList){
-            for(LinkedPurchaseList linkedPurchaseList : list) {
-                if (student.getId() == linkedPurchaseList.getLinkedPurchaseListPK().getStudentId()) {
-                    linkedPurchaseList.setStudentName(student.getName());
-                    session.saveOrUpdate(linkedPurchaseList);
+            for(LinkedPurchaseList linkedList : list) {
+                if (student.getId() == linkedList.getLinkedPurchaseListPK().getStudentId()) {
+                    linkedList.setStudentName(student.getName());
+                    session.saveOrUpdate(linkedList);
                 }
             }
         }
@@ -63,4 +65,12 @@ public class Main{
         session.close();
 
     }
+
+    private void createObject(List<Subscription> list, LinkedPurchaseList obj,LinkedPurchaseListPK o){
+
+    }
+    private void addCourseItems(List<Course> courseList, List<LinkedPurchaseList> list){
+
+    }
+
 }
