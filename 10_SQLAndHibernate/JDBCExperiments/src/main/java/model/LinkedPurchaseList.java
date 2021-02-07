@@ -28,4 +28,5 @@ public class LinkedPurchaseList implements Serializable {
     @Column(name = "course_price")
     @JoinTable(name = "Course", joinColumns ={@JoinColumn(name = "price")})
     private Integer coursePrice;
+
 }

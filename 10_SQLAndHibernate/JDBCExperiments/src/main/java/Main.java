@@ -15,6 +15,7 @@ import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.xml.crypto.Data;
 import java.util.List;
 
 public class Main{
@@ -26,15 +27,25 @@ public class Main{
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
         Session session = sessionFactory.openSession();
 
-//        String hql = "From " + Course.class.getSimpleName();
-//        List<Course> courseList = session.createQuery(hql).getResultList();
-//        String hql1 = "From " + Student.class.getSimpleName();
-//        List<Student> studentList = session.createQuery(hql1).getResultList();
-//        String hql2 = "From " + Subscription.class.getSimpleName();
-//        List<Subscription> subscriptionList = session.createQuery(hql2).getResultList();
-        String hql = "insert into LinkedPurchaseList (coursePrice, courseName) " +
-                "select 'price', 'name' from Course";
-        int rows = session.createQuery(hql).executeUpdate();
+        String hql = "From " + Course.class.getSimpleName();
+        List<Course> courseList = session.createQuery(hql).getResultList();
+        String hql1 = "From " + Student.class.getSimpleName();
+        List<Student> studentList = session.createQuery(hql1).getResultList();
+        String hql2 = "From " + Subscription.class.getSimpleName();
+        List<Subscription> subscriptionList = session.createQuery(hql2).getResultList();
+        LinkedPurchaseList linkedPurchaseList = new LinkedPurchaseList();
+        LinkedPurchaseListPK l = new LinkedPurchaseListPK();
+        session.beginTransaction();
+
+        for(Subscription subscription : subscriptionList) {
+            l = new LinkedPurchaseListPK(subscription.getSubscriptionPK().getStudent().getId(), subscription.getSubscriptionPK().getCourse().getId());
+            linkedPurchaseList = new LinkedPurchaseList(l,null,null,null,null);
+            session.save(linkedPurchaseList);
+        }
+//        LinkedPurchaseList l = new LinkedPurchaseList(linkedPurchaseListPK, "Фуриков Эрнст", "Веб-разработчик с 0 до PRO", null, 189600);
+        session.getTransaction().commit();
+
+
 //        String hqlStudents = "From " + Student.class.getSimpleName() + " Where id < 5";
 //        List<Student> list = session.createQuery(hqlStudents).getResultList();
 //        for (Student student : list){
