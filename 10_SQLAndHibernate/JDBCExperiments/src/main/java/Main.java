@@ -33,61 +33,34 @@ public class Main{
         List<Student> studentList = session.createQuery(hql1).getResultList();
         String hql2 = "From " + Subscription.class.getSimpleName();
         List<Subscription> subscriptionList = session.createQuery(hql2).getResultList();
-        LinkedPurchaseList linkedPurchaseList = new LinkedPurchaseList();
-        LinkedPurchaseListPK l = new LinkedPurchaseListPK();
+        String hql3 = "From " + LinkedPurchaseList.class.getSimpleName();
+        List<LinkedPurchaseList> list = session.createQuery(hql3).getResultList();
         session.beginTransaction();
 
-        for(Subscription subscription : subscriptionList) {
-            l = new LinkedPurchaseListPK(subscription.getSubscriptionPK().getStudent().getId(), subscription.getSubscriptionPK().getCourse().getId());
-            linkedPurchaseList = new LinkedPurchaseList(l,null,null,subscription.getSubscriptionDate(),null);
-            session.save(linkedPurchaseList);
-        }
+//        for(Subscription subscription : subscriptionList) {
+//            l = new LinkedPurchaseListPK(subscription.getSubscriptionPK().getStudent().getId(), subscription.getSubscriptionPK().getCourse().getId());
+//            linkedPurchaseList = new LinkedPurchaseList(l,null,null,subscription.getSubscriptionDate(),null);
+//            session.save(linkedPurchaseList);
+//        }
         for(Course course : courseList){
-            if(course.getId() == linkedPurchaseList.getLinkedPurchaseListPK().getCourseId()){
-                linkedPurchaseList.setCourseName(course.getName());
-                linkedPurchaseList.setCoursePrice(course.getPrice());
-                session.saveOrUpdate(linkedPurchaseList);
+            for(LinkedPurchaseList linkedPurchaseList : list) {
+                if (course.getId() == linkedPurchaseList.getLinkedPurchaseListPK().getCourseId()) {
+                    linkedPurchaseList.setCourseName(course.getName());
+                    linkedPurchaseList.setCoursePrice(course.getPrice());
+                    session.saveOrUpdate(linkedPurchaseList);
+                }
             }
         }
         for(Student student : studentList){
-            if(student.getId() == linkedPurchaseList.getLinkedPurchaseListPK().getStudentId()){
-                linkedPurchaseList.setStudentName(student.getName());
-                session.saveOrUpdate(linkedPurchaseList);
+            for(LinkedPurchaseList linkedPurchaseList : list) {
+                if (student.getId() == linkedPurchaseList.getLinkedPurchaseListPK().getStudentId()) {
+                    linkedPurchaseList.setStudentName(student.getName());
+                    session.saveOrUpdate(linkedPurchaseList);
+                }
             }
         }
-
-
-//        LinkedPurchaseList l = new LinkedPurchaseList(linkedPurchaseListPK, "Фуриков Эрнст", "Веб-разработчик с 0 до PRO", null, 189600);
         session.getTransaction().commit();
-
-
-//        String hqlStudents = "From " + Student.class.getSimpleName() + " Where id < 5";
-//        List<Student> list = session.createQuery(hqlStudents).getResultList();
-//        for (Student student : list){
-//            System.out.println(student.getName() + " " + student.getId());
-//        }
         session.close();
-
-
-//    try {
-//        factory = new Configuration().configure().buildSessionFactory();
-//        DAO<Course, Integer> CourseDAO = new CourseDAO(factory);
-//        final Course result = CourseDAO.read(1);
-//        System.out.println("Result : " + result.getSubscriptions().get(0).getSubscriptionPK().getStudent().getName());
-//        System.out.println();
-//        DAO<Teacher, Integer> teacherStringDAO = new TeacherDAO(factory);
-//        final Teacher resultTeacher = teacherStringDAO.read(1);
-//        System.out.println("Result : " + result.getName());
-//
-//    }
-//    finally {
-//        if(factory != null){
-//            factory.close();
-//        }
-//    }
-
-
-
 
     }
 }
