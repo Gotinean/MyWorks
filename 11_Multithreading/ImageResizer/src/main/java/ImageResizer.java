@@ -34,7 +34,9 @@ public class ImageResizer implements  Runnable {
                 int newHeight = (int) Math.round(
                         image.getHeight() / (image.getWidth() / (double) newWidth)
                 );
-                BufferedImage newImage = Scalr.resize(image,newWidth);
+                BufferedImage newImage = Scalr.resize(image, Scalr.Method.SPEED, (newWidth*2));
+                BufferedImage newImage1 = Scalr.resize(newImage, Scalr.Method.QUALITY, Scalr.Mode.FIT_TO_WIDTH, newWidth, newHeight, Scalr.OP_ANTIALIAS);
+
 //                BufferedImage newImage = new BufferedImage(
 //                        newWidth, newHeight, BufferedImage.TYPE_INT_RGB
 //                );
@@ -51,7 +53,7 @@ public class ImageResizer implements  Runnable {
 //                }
 
                 File newFile = new File(dstFolder + "/" + file.getName());
-                ImageIO.write(newImage, "jpg", newFile);
+                ImageIO.write(newImage1, "jpg", newFile);
             }
         }
         catch (Exception ex) {
