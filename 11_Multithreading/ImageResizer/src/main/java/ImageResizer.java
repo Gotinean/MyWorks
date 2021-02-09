@@ -18,7 +18,6 @@ public class ImageResizer implements  Runnable {
         this.dstFolder = dstFolder;
         this.start = start;
     }
-
     @Override
     public void run() {
         try
@@ -29,28 +28,12 @@ public class ImageResizer implements  Runnable {
                 if(image == null) {
                     continue;
                 }
-
-                int newWidth = 300;
                 int newHeight = (int) Math.round(
                         image.getHeight() / (image.getWidth() / (double) newWidth)
                 );
                 BufferedImage newImage = Scalr.resize(image, Scalr.Method.SPEED, (newWidth*2));
                 BufferedImage newImage1 = Scalr.resize(newImage, Scalr.Method.QUALITY, Scalr.Mode.FIT_TO_WIDTH, newWidth, newHeight, Scalr.OP_ANTIALIAS);
 
-//                BufferedImage newImage = new BufferedImage(
-//                        newWidth, newHeight, BufferedImage.TYPE_INT_RGB
-//                );
-//
-//                int widthStep = image.getWidth() / newWidth;
-//                int heightStep = image.getHeight() / newHeight;
-//
-//                for (int x = 0; x < newWidth; x++)
-//                {
-//                    for (int y = 0; y < newHeight; y++) {
-//                        int rgb = image.getRGB(x * widthStep, y * heightStep);
-//                        newImage.setRGB(x, y, rgb);
-//                    }
-//                }
 
                 File newFile = new File(dstFolder + "/" + file.getName());
                 ImageIO.write(newImage1, "jpg", newFile);
