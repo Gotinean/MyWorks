@@ -1,27 +1,34 @@
-import lombok.AllArgsConstructor;
-import lombok.Data;
+public class Account {
+    private long moneyAmount;
+    private String accountNumber;
+    private boolean isBlocked = false;
 
-import java.util.HashMap;
-import java.util.List;
-@Data
-@AllArgsConstructor
-public class Account
-{
-    private long money;
-    private String accNumber;
-    private boolean blocked;
+    public Account(long moneyAmount, String accountNumber) {
+        this.moneyAmount = moneyAmount;
+        this.accountNumber = accountNumber;
+    }
+
+    public long getMoneyAmount() {
+        return moneyAmount;
+    }
+
+    public void setMoneyAmount(long moneyAmount) {
+        this.moneyAmount = moneyAmount;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
 
     public boolean isBlocked() {
-        return blocked;
+        return isBlocked;
     }
 
-    public static void makeAccounts(int accId, List<Account> list) throws InterruptedException {
-        int a = 0;
-        long amount = a + Math.round(Math.random() * 100000);
-        String b = String.valueOf(accId);
-        Account account = new Account(amount, b, false);
-        list.add(account);
+    public void setBlocked(boolean blocked) {
+        isBlocked = blocked;
     }
-
-
 }

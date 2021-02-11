@@ -1,125 +1,109 @@
-import lombok.SneakyThrows;
-import lombok.Synchronized;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
-public class Bank
-{
-    private final Random random = new Random();
-    private Bank bank = new Bank();
-    private long totalAmount;
-    public long getTotalAmount() {
-        return totalAmount;
-    }
-    private List<Account> list;
+public class Bank implements Runnable {
+    Random random = new Random();
+    private long bankAmount;
+    private List<Account> accountList = new ArrayList<>();
 
-    public static void main(String[] args) throws InterruptedException {
-        new Bank().main();
+    public long getBankAmount() {
+        return bankAmount;
     }
 
-    public synchronized boolean isFraud(Account fromAccount, Account toAccount, long amount)
-        throws InterruptedException
-    {
+    public void setBankAmount(long bankAmount) {
+        this.bankAmount = bankAmount;
+    }
+
+    public synchronized boolean isFraud() throws InterruptedException {
         Thread.sleep(1000);
         return random.nextBoolean();
     }
-    /**
-     * TODO: реализовать метод. Метод переводит деньги между счетами.
-     * Если сумма транзакции > 50000, то после совершения транзакции,
-     * она отправляется на проверку Службе Безопасности – вызывается
-     * метод isFraud. Если возвращается true, то делается блокировка
-     * счетов (как – на ваше усмотрение)
-     */
     public synchronized void transfer(Account fromAccount, Account toAccount, long amount) throws InterruptedException {
-        if (fromAccount.isBlocked() | toAccount.isBlocked()) {
-            System.out.println("Транзакции невозможны. Счет одного из участников заблокирован," +
-                    " обратитесь в центральный офис банка");
-        } else {
-            if (amount > 50000) {
-                isFraud(fromAccount, toAccount, amount);
-                if (!isFraud(fromAccount, toAccount, amount)) {
-                    if (fromAccount.getMoney() > amount) {
-                        fromAccount.setMoney(fromAccount.getMoney() - amount);
-                        toAccount.setMoney(toAccount.getMoney() + amount);
-                        Thread.sleep(1005);
-                    } else {
-                        fromAccount.setBlocked(true);
-                        toAccount.setBlocked(true);
-                        System.out.println("У вас недостаточно средств на счету для осуществления транзакции \n " +
-                                "Доступная сумма: " + fromAccount.getMoney() + " \n Запрашиваемый перевод: " + amount);
-                    }
-                } else {
-                    System.out.println("Данная транзакция показалась нам подозрительной, \n" +
-                            " пожалуйста обратитесь в отделение банка для осуществления перевода");
+        if(fromAccount.isBlocked() | toAccount.isBlocked()){
+            System.out.println("Транзакция невозможна, один из аккаунтов в блоке. Обратитесь в банк");
+        }
+        else {
+            if(amount > 50000){
+                fromAccount.setBlocked(isFraud());
+                toAccount.setBlocked(isFraud());
+                if(isFraud()){
+                    System.out.println("Подозрительная транзакция. Для совершения транзакции обратитесь в банк.");
                 }
-            } else {
-                if (fromAccount.getMoney() > amount) {
-                    fromAccount.setMoney(fromAccount.getMoney() - amount);
-                    toAccount.setMoney(toAccount.getMoney() + amount);
-                } else {
-                    System.out.println("У вас недостаточно средств на счету для осуществления транзакции \n " +
-                            "Доступная сумма: " + fromAccount.getMoney() + " \n Запрашиваемый перевод: " + amount);
+                else {
+                    if(fromAccount.getMoneyAmount() > amount) {
+                        fromAccount.setMoneyAmount(fromAccount.getMoneyAmount() - amount);
+                        toAccount.setMoneyAmount(toAccount.getMoneyAmount() + amount);
+                    }
+                    else {
+                        System.out.println("Недостаточно средств для перевода");
+                    }
+                }
+
+            }
+            else {
+                if(fromAccount.getMoneyAmount() > amount) {
+                    fromAccount.setMoneyAmount(fromAccount.getMoneyAmount() - amount);
+                    toAccount.setMoneyAmount(toAccount.getMoneyAmount() + amount);
+                }
+                else {
+                    System.out.println("Недостаточно средств для перевода");
                 }
             }
         }
     }
-    /**
-     * TODO: реализовать метод. Возвращает остаток на счёте.
-     */
-    public long getBalance(List<Account> list)
-    {
-        long balance = 0;
-        for(int i = 0; i < list.size(); i++){
-            balance = list.get(i).getMoney() + balance;
-        }
-        return balance;
-    }
-    public synchronized void makeAccounts(int accId, List<Account> list) throws InterruptedException {
-        int a = 0;
-        long amount = random.nextInt(200000);
-        String b = String.valueOf(accId);
-        Account account = new Account(amount, b, false);
+    public void createAccountList (List<Account> list){
+        String newAccount = "newAccount";
+        Account account = new Account(random.nextInt(200000),newAccount);
         list.add(account);
-
     }
-    public synchronized void work(Bank bank) throws InterruptedException {
-        int firstAccount = random.nextInt(10);
-        int secondAccount = random.nextInt(10);
-        long transferMoney = random.nextInt(70000);
-        if (firstAccount != secondAccount) {
-            bank.transfer(list.get(firstAccount), list.get(secondAccount), transferMoney);
-            System.out.println(bank.getBalance(list));
+
+    public void main(Bank bank) throws InterruptedException {
+        List<Account> list = new ArrayList<>();
+        long totalAmount = 0;
+        for(int i = 0; i < 10; i++) {
+            bank.createAccountList(list);
+            totalAmount = list.get(i).getMoneyAmount() + totalAmount;
+        }
+        bank.setBankAmount(totalAmount);
+        System.out.println("Остаток в банке до начала транзакций: " + bank.bankAmount
+                + "=======================================================");
+        for(int i = 0; i < 1000; i++) {
+            int firstAccount = random.nextInt(10);
+            int secondAccount = random.nextInt(10);
+            int amount = random.nextInt(70000);
+            if(firstAccount != secondAccount) {
+                bank.transfer(list.get(firstAccount), list.get(secondAccount), amount);
+            }
+        }
+        long totalAmountAfterTransactions = 0;
+        for(int i = 0; i < 10; i++) {
+            totalAmountAfterTransactions = list.get(i).getMoneyAmount() + totalAmountAfterTransactions;
+        }
+        bank.setBankAmount(totalAmountAfterTransactions);
+        System.out.println("Остаток в банке после совершения всех транзакций составляет: "
+                +bank.bankAmount + " ---------------------------------");
+    }
+
+    @Override
+    public void run() {
+        Bank bank = new Bank();
+        try {
+            main(bank);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    public void main() throws InterruptedException {
-        long before = System.currentTimeMillis();
-        List<Thread> threads = new ArrayList<>();
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
         for(int i = 0; i < 10; i++){
-            int finalI = i;
-            threads.add(new Thread(()-> {
-                try {
-                    makeAccounts(finalI,list);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                for (int j = 0; j < 1000; j++) {
-                    try {
-                        work(bank);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }));
+            executorService.submit(new Bank());
         }
-        threads.forEach(Thread::start);
-        for (Thread thread : threads) {
-            thread.join();
-        }
-
+        executorService.shutdown();
+        executorService.awaitTermination(1, TimeUnit.DAYS);
     }
-
 }
