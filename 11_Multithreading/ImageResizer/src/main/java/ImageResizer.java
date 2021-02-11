@@ -7,13 +7,13 @@ import java.awt.image.ImagingOpException;
 import java.io.File;
 
 public class ImageResizer implements  Runnable {
-    private File[] files;
+    private File file;
     private int newWidth;
     private String dstFolder;
     private long start;
 
-    public ImageResizer(File[] files, int newWidth, String dstFolder, long start) {
-        this.files = files;
+    public ImageResizer(File file, int newWidth, String dstFolder, long start) {
+        this.file = file;
         this.newWidth = newWidth;
         this.dstFolder = dstFolder;
         this.start = start;
@@ -22,11 +22,9 @@ public class ImageResizer implements  Runnable {
     public void run() {
         try
         {
-            for(File file : files)
-            {
                 BufferedImage image = ImageIO.read(file);
                 if(image == null) {
-                    continue;
+                    System.out.println("Изображений не найдено");
                 }
                 int newHeight = (int) Math.round(
                         image.getHeight() / (image.getWidth() / (double) newWidth)
@@ -38,7 +36,7 @@ public class ImageResizer implements  Runnable {
                 File newFile = new File(dstFolder + "/" + file.getName());
                 ImageIO.write(newImage1, "jpg", newFile);
             }
-        }
+
         catch (Exception ex) {
             ex.printStackTrace();
         }
