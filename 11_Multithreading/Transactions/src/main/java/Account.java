@@ -1,27 +1,28 @@
-public class Account {
-    private long moneyAmount;
-    private String accountNumber;
-    private boolean isBlocked = false;
+public class Account
+{
+    private volatile long money;
+    private volatile String accNumber;
+    private boolean isBlocked;
 
-    public Account(long moneyAmount, String accountNumber) {
-        this.moneyAmount = moneyAmount;
-        this.accountNumber = accountNumber;
+    public Account(long money, String accNumber) {
+        this.money = money;
+        this.accNumber = accNumber;
     }
 
-    public long getMoneyAmount() {
-        return moneyAmount;
+    public long getMoney() {
+        return money;
     }
 
-    public void setMoneyAmount(long moneyAmount) {
-        this.moneyAmount = moneyAmount;
+    public void setMoney(long money) {
+        this.money = money;
     }
 
-    public String getAccountNumber() {
-        return accountNumber;
+    public String getAccNumber() {
+        return accNumber;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setAccNumber(String accNumber) {
+        this.accNumber = accNumber;
     }
 
     public boolean isBlocked() {
@@ -31,4 +32,9 @@ public class Account {
     public void setBlocked(boolean blocked) {
         isBlocked = blocked;
     }
+
+    public Account(){
+        isBlocked = false;
+    }
+
 }
