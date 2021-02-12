@@ -16,31 +16,29 @@ public class Main
         String srcFolder = "/home/swile/pictures/";
         String dstFolder = "/home/swile/newPictures/";
         File srcDir = new File(srcFolder);
-        long start = System.currentTimeMillis();
+
         File[] files = srcDir.listFiles();
         int numberOfCPUCores;
         numberOfCPUCores = Runtime.getRuntime().availableProcessors();
-        int halfNumberOfCPUCores = numberOfCPUCores/2;
+        long start = System.currentTimeMillis();
+        System.out.println(numberOfCPUCores);
         assert files != null;
+        int a = files.length%numberOfCPUCores;
+        List<File[]> list = new ArrayList<>();
         ExecutorService executorService = Executors.newFixedThreadPool(numberOfCPUCores);
         for(int i = 0; i < numberOfCPUCores; i++){
-            executorService.submit(new ImageResizer(files[i], newWidth, dstFolder, start));
-            for(int j = numberOfCPUCores; j < files.length/numberOfCPUCores; j++) {
-                executorService.submit(new ImageResizer(files[i*j], newWidth, dstFolder, start));
-            }
+            File[] files1 = new File[files.length/numberOfCPUCores];
+            System.arraycopy(files, i*(files.length/numberOfCPUCores),files1,0,files1.length);
+            list.add(files1);
         }
-//        for(int i = 0; i < files.length/numberOfCPUCores; i++) {
-//            executorService.submit(new ImageResizer(files[i], newWidth, dstFolder, start));
-//        }
-//        for(int i = (files.length/numberOfCPUCores); i < files.length/(files.length/numberOfCPUCores); i++){
-//            executorService.submit(new ImageResizer(files[i], newWidth, dstFolder, start));
-//        }
-//        for(int i = files.length-1; i > files.length/(files.length/numberOfCPUCores); i--){
-//            executorService.submit(new ImageResizer(files[i], newWidth, dstFolder, start));
-//        }
-//        for (int i = files.length/(files.length/numberOfCPUCores); i > (files.length/numberOfCPUCores); i--){
-//            executorService.submit(new ImageResizer(files[i], newWidth, dstFolder, start));
-//        }
+        if (a > 0){
+            File[] files2 = new File[a+1];
+            System.arraycopy(files, files.length/numberOfCPUCores,files2,0,files2.length);
+            list.add(files2);
+        }
+        for(int i = 0; i < list.size(); i++){
+                executorService.submit(new ImageResizer(list.get(i), newWidth, dstFolder, start));
+        }
         executorService.shutdown();
         executorService.awaitTermination(1, TimeUnit.DAYS);
         System.out.println("Duration: " + (System.currentTimeMillis() - start));
