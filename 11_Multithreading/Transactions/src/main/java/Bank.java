@@ -4,6 +4,7 @@ public class Bank
 {
     private HashMap<String, Account> accounts = new HashMap<>();
     private final Random random = new Random();
+    private final Boolean key = false;
 
     public synchronized boolean isFraud(String fromAccountNum, String toAccountNum, long amount)
             throws InterruptedException
@@ -18,26 +19,25 @@ public class Bank
      * метод isFraud. Если возвращается true, то делается блокировка
      * счетов (как – на ваше усмотрение)
      */
-    public synchronized void transfer(String fromAccountNum, String toAccountNum, long amount) throws InterruptedException {
-        if(accounts.get(fromAccountNum).isBlocked() | accounts.get(toAccountNum).isBlocked()){
-        }
-        else {
-            if(amount > 50000){
-                if(isFraud(fromAccountNum, toAccountNum, amount)){
+    public void transfer(String fromAccountNum, String toAccountNum, long amount) throws InterruptedException {
+        if (accounts.get(fromAccountNum).isBlocked() | accounts.get(toAccountNum).isBlocked()) {
+            return;
+        } else {
+            if (amount > 50000) {
+                if (isFraud(fromAccountNum, toAccountNum, amount)) {
                     accounts.get(fromAccountNum).setBlocked(true);
                     accounts.get(toAccountNum).setBlocked(true);
-                }
-                else {
+                } else synchronized (key){
                     accounts.get(fromAccountNum).setMoney(accounts.get(fromAccountNum).getMoney() - amount);
                     accounts.get(toAccountNum).setMoney(accounts.get(toAccountNum).getMoney() + amount);
                 }
-            }
-            else {
+            } else synchronized (key){
                 accounts.get(fromAccountNum).setMoney(accounts.get(fromAccountNum).getMoney() - amount);
                 accounts.get(toAccountNum).setMoney(accounts.get(toAccountNum).getMoney() + amount);
             }
         }
     }
+
 
     /**
      * TODO: реализовать метод. Возвращает остаток на счёте.

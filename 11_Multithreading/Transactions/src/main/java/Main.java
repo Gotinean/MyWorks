@@ -8,7 +8,7 @@ public class Main {
     private static final Random random = new Random();
     public static void main(String[] args) throws InterruptedException {
         Bank bank = new Bank();
-        List<String> accounts = new ArrayList<>();
+        List<Thread> threads = new ArrayList<>();
         long totalBalance = 0;
         for(int i = 1; i <= 10; i++) {
             bank.createAccount(String.valueOf(i), random.nextInt(200000));
@@ -43,10 +43,12 @@ public class Main {
                         }
                     }
                 }
-
-            });
-
+            }
+            );
+            threads.add(thread);
             thread.start();
+        }
+        for(Thread thread : threads){
             thread.join();
         }
         long finalTotalBalance = 0;
@@ -54,7 +56,7 @@ public class Main {
             bank.getBalance(String.valueOf(i));
             finalTotalBalance = finalTotalBalance + bank.getBalance(String.valueOf(i));
         }
-        System.out.println(finalTotalBalance);
+        System.out.println("Сумма всех счетов после выполнения всех транзакций: "+finalTotalBalance);
         //System.out.println(totalBalance);
 //        ExecutorService executorService = Executors.newFixedThreadPool(10);
     }
