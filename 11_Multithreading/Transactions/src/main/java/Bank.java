@@ -5,6 +5,16 @@ public class Bank
     private HashMap<String, Account> accounts = new HashMap<>();
     private final Random random = new Random();
     private final Boolean key = false;
+    final Account src = new Account();
+    final Account dst = new Account();
+
+//    public void setSrcNum(String srcNum) {
+//        this.srcNum = srcNum;
+//    }
+//
+//    public void setDstNum(String dstNum) {
+//        this.dstNum = dstNum;
+//    }
 
     public synchronized boolean isFraud(String fromAccountNum, String toAccountNum, long amount)
             throws InterruptedException
@@ -27,11 +37,11 @@ public class Bank
                 if (isFraud(fromAccountNum, toAccountNum, amount)) {
                     accounts.get(fromAccountNum).setBlocked(true);
                     accounts.get(toAccountNum).setBlocked(true);
-                } else synchronized (key){
+                } else synchronized (src){
                     accounts.get(fromAccountNum).setMoney(accounts.get(fromAccountNum).getMoney() - amount);
                     accounts.get(toAccountNum).setMoney(accounts.get(toAccountNum).getMoney() + amount);
                 }
-            } else synchronized (key){
+            } else synchronized (dst){
                 accounts.get(fromAccountNum).setMoney(accounts.get(fromAccountNum).getMoney() - amount);
                 accounts.get(toAccountNum).setMoney(accounts.get(toAccountNum).getMoney() + amount);
             }
@@ -46,15 +56,16 @@ public class Bank
     {
         return accounts.get(accountNum).getMoney();
     }
-    public void createAccount(String accountNumber, int accountMoney){
+    public void createAccount(String accountNumber, long accountMoney){
         Account account = new Account(accountMoney, accountNumber);
         accounts.put(accountNumber,account);
     }
-    public List<String> showAccount(List<String> list){
+    public Map<String, Account> getAccounts(){
         for(Map.Entry<String, Account> accountEntry : accounts.entrySet()){
-            list.add(String.valueOf(accountEntry.getKey()) + " | " + String.valueOf(accountEntry.getValue()));
+            accountEntry.getValue();
+            accountEntry.getKey();
         }
-        return list;
+        return accounts;
     }
 
 }
