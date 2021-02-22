@@ -1,8 +1,8 @@
 public class Account
 {
     private volatile long money;
-    private volatile String accNumber;
-    private boolean isBlocked;
+    private final String accNumber;
+    private boolean isBlocked = false;
 
     public Account(long money, String accNumber) {
         this.money = money;
@@ -21,10 +21,6 @@ public class Account
         return accNumber;
     }
 
-    public void setAccNumber(String accNumber) {
-        this.accNumber = accNumber;
-    }
-
     public boolean isBlocked() {
         return isBlocked;
     }
@@ -32,9 +28,4 @@ public class Account
     public void setBlocked(boolean blocked) {
         isBlocked = blocked;
     }
-
-    public Account(){
-        isBlocked = false;
-    }
-
 }

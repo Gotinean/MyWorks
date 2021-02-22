@@ -8,14 +8,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.RecursiveTask;
 
 public class Sitemap {
+    static int numOfThreads = Runtime.getRuntime().availableProcessors();
+    static long numOfOperations = 0;
+    static String path = "http://lenta.ru/";
     public static void main(String[] args) throws IOException, InterruptedException {
-        String path = "http://lenta.ru/";
         List<Maps> links = new ArrayList<>();
         Document document = Jsoup.connect(path).get();
         Element content = document.getElementById("sidebar");
         Elements links2 = content.select("li");
+        numOfOperations = links2.size();
         for (Element link : links2) {
             String readyLink = link.select("a").attr("href");
             if (readyLink.length() > 0) {
@@ -28,7 +33,11 @@ public class Sitemap {
             }
         }
         for (int i = 0; i < links.size(); i++) {
-            Thread.sleep(150);
+            try {
+                Thread.sleep(150);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             Document document1 = Jsoup.connect(links.get(i).getFirstLink()).get();
             Element second = document1.getElementById("root");
             Elements links3 = second.select("div[class^='items']");
@@ -57,5 +66,24 @@ public class Sitemap {
                 System.out.println(string);
             }
         }
+
     }
+//    static class MyFork extends RecursiveTask<String>{
+//        long from, to;
+//
+//        public MyFork(long from, long to) {
+//            this.from = from;
+//            this.to = to;
+//        }
+//
+//        @Override
+//        protected String compute() {
+//            if((to - from) <= numOfOperations/numOfThreads){
+//
+//            }
+//            else {
+//            }
+//            return null;
+//        }
+//    }
 }

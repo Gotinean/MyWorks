@@ -57,7 +57,5 @@ public class Main {
             finalTotalBalance = finalTotalBalance + bank.getBalance(String.valueOf(i));
         }
         System.out.println("Сумма всех счетов после выполнения всех транзакций: "+finalTotalBalance);
-        //System.out.println(totalBalance);
-//        ExecutorService executorService = Executors.newFixedThreadPool(10);
     }
 }
