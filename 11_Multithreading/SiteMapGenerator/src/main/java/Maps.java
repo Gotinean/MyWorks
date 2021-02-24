@@ -1,26 +1,35 @@
 import java.util.List;
 
 public class Maps {
-    private String firstLink;
-    private List<String> secondLink;
+//    private String firstLink;
+//    private List<String> secondLink;
+//
+//
+//    public String getFirstLink() {
+//        return firstLink;
+//    }
+//
+//    public void setFirstLink(String firstLink) {
+//        this.firstLink = firstLink;
+//    }
+//
+//    public List<String> getSecondLink() {
+//        return secondLink;
+//    }
+//
+//    public void setSecondLink(List<String> secondLink) {
+//        this.secondLink = secondLink;
+//    }
+//    public void addSecondLink(List<String> list,String link){
+//        list.add(link);
+//    }
+    private List<String> readyBlocks;
 
-
-    public String getFirstLink() {
-        return firstLink;
+    public List<String> getReadyBlocks() {
+        return readyBlocks;
     }
 
-    public void setFirstLink(String firstLink) {
-        this.firstLink = firstLink;
-    }
-
-    public List<String> getSecondLink() {
-        return secondLink;
-    }
-
-    public void setSecondLink(List<String> secondLink) {
-        this.secondLink = secondLink;
-    }
-    public void addSecondLink(List<String> list,String link){
-        list.add(link);
+    public void setReadyBlocks(List<String> readyBlocks) {
+        this.readyBlocks = readyBlocks;
     }
 }
