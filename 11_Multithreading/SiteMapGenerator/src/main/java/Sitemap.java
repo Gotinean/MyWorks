@@ -42,33 +42,25 @@ public class Sitemap {
         public MyFork(String url) {
             this.url = url;
         }
-        Set<String> result = new TreeSet<>();
-
-        static Set<String> getLinks(String url, Set<String> urls) throws InterruptedException {
-            Thread.sleep(500);
-            if (urls.contains(url)) {
-                return urls;
-            }
-            urls.add(url);
+        static Set<String> getLinks(String url) throws InterruptedException {
+            Set<String> urls = new TreeSet<>();
+            Thread.sleep(1000);
             try {
-                Document doc = Jsoup.connect(path).get();
+                Document doc = Jsoup.connect(url).get();
                 elements = doc.select("a");
                 for (Element element : elements) {
-                    if (!check(element.absUrl("href"), urls)) {
-                        continue;
-                    }
                     System.out.println(element.absUrl("href"));
                     urls.add(url);
-                    getLinks(element.absUrl("href"), urls);
+//                    getLinks(element.absUrl("href"));
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
             return urls;
         }
-        static boolean check(String path, Set<String> urls) {
+        boolean check(String path, Set<String> set) {
             if (path.endsWith(".pdf") | !path.matches("https:\\/\\/skillbox\\.ru[a-zA-Z\\/-]+") |
-                    urls.contains(path)) {
+                    set.contains(path)) {
                 return false;
             } else
                 return true;
@@ -77,16 +69,21 @@ public class Sitemap {
 
         @Override
         protected Set<String> compute() {
-            result.add(url);
+            Set<String> result = new TreeSet<>();
             try {
-                Set<String> linksInsideCompute = getLinks(url, result);
+                result = getLinks(url);
+                check(url, result);
                 List<MyFork> taskList = new ArrayList<>();
-                for(String link : linksInsideCompute){
+                for(String link : result){
                     MyFork myFork = new MyFork(link);
                     myFork.fork();
                     taskList.add(myFork);
                 }
-                taskList.forEach(MyFork::join);
+                for(MyFork myFork : taskList){
+                    result = myFork.join();
+                    links.addAll(result);
+
+                }
                 return result;
             } catch (InterruptedException e) {
                 e.printStackTrace();
