@@ -11,14 +11,9 @@ import java.util.concurrent.RecursiveTask;
 
 public class Sitemap {
     static Set<String> links = new TreeSet<>();
-
-    static String path = "https://skillbox.ru/";
-    static int numOfThreads = Runtime.getRuntime().availableProcessors();
-    static Elements elements;
     public static void main(String[] args) throws IOException, InterruptedException {
-        links.add(path);
-        ForkJoinPool pool = new ForkJoinPool(numOfThreads);
-        links.addAll(pool.invoke(new MyFork(path)));
+        String path = "https://skillbox.ru/";
+        links = new ForkJoinPool().invoke(new MyFork(path));
         PrintWriter pw = new PrintWriter("file.txt");
         for (String link : links) {
             if (!link.endsWith("/")) {
@@ -36,59 +31,48 @@ public class Sitemap {
         }
         pw.close();
     }
-
-    static class MyFork extends RecursiveTask<Set<String>>{
+    static class MyFork extends RecursiveTask<Set<String>> {
         String url;
         public MyFork(String url) {
             this.url = url;
         }
-        static Set<String> getLinks(String url) throws InterruptedException {
+        @Override
+        protected Set<String> compute() {
+            List<MyFork> taskList = new ArrayList<>();
+            Set<String> result = getLinks();
+            for (String s : result) {
+                if(check(s)) {
+                    taskList.add((MyFork) new MyFork(s).fork());
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                    }
+                }
+            }
+            for (MyFork child : taskList) {
+                child.join();
+                result.add(child.url);
+            }
+            return result;
+        }
+        private Set<String> getLinks(){
             Set<String> urls = new TreeSet<>();
-            Thread.sleep(1000);
             try {
                 Document doc = Jsoup.connect(url).get();
-                elements = doc.select("a");
+                Elements elements = doc.select("a");
                 for (Element element : elements) {
-                    System.out.println(element.absUrl("href"));
+                    String url = element.absUrl("href");
                     urls.add(url);
-//                    getLinks(element.absUrl("href"));
+                    System.out.println(url);
+
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
             return urls;
         }
-        boolean check(String path, Set<String> set) {
-            if (path.endsWith(".pdf") | !path.matches("https:\\/\\/skillbox\\.ru[a-zA-Z\\/-]+") |
-                    set.contains(path)) {
-                return false;
-            } else
-                return true;
-
-        }
-
-        @Override
-        protected Set<String> compute() {
-            Set<String> result = new TreeSet<>();
-            try {
-                result = getLinks(url);
-                check(url, result);
-                List<MyFork> taskList = new ArrayList<>();
-                for(String link : result){
-                    MyFork myFork = new MyFork(link);
-                    myFork.fork();
-                    taskList.add(myFork);
-                }
-                for(MyFork myFork : taskList){
-                    result = myFork.join();
-                    links.addAll(result);
-
-                }
-                return result;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return result;
+        boolean check(String url) {
+            return (url.matches("https:\\/\\/skillbox\\.ru[a-zA-Z\\/-]+") && url.endsWith("/"));
         }
     }
 }
